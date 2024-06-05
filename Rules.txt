@@ -1,0 +1,74 @@
+Rules:
+
+1- admin :  
+	- admin can view and manage all companies 
+	- admin can view and manage all customers
+	- admin can add another admin
+	- admin can search for a user
+	- admin can view all cars 
+	- admin can view all users logs by clicking their name
+	
+2- Customer
+	- customer has to create an account.
+ 	- customer can edit his profile. 
+	- home screen, review all cars in database and has a choice to filter results based on price, brand, and company.	
+	- customer can search and view all cars and companies 
+		. search for a car, customer can search for a car brand. 
+		. search for a company.
+		. customer can reserve a car. 
+		. customer can view all reserved cars by himself.
+		.* customer can rate a car (optional).
+		. customer can save a car to view later "Interested".
+
+3- Company
+	- company has to create an account.
+	- company can edit it's profile.
+		.add a phone number.
+		.add a location.
+	- home screen, view all cars in database.
+	- company can search for a car.
+	- company can view and manage all it's cars.
+	- company can rate a user.
+
+Side bar:
+
+	For the admin: 
+		- Utility: 
+			1- Profile
+			2- Logout
+		
+		- Navigation: 
+			1- Companies: Containing All companies.
+			2- Customers: Containing All customers.
+		
+		- Admin:
+			1- Add Admin
+	For the company: 
+		- Utility: 
+			1- Profile
+			2- Logout
+		
+		- Navigation: 
+			1- Home: Containing all cars.
+			2- My cars: Containing All companies' cars.
+		
+		- Company:
+			1- manage all reservations
+			2- Add or remove cars.
+
+	For the customer: 
+		- Utility: 
+			1- Profile
+			2- Logout
+		
+		- Navigation: 
+			1- Home: Containing all cars.
+			2- Interested: Containing All interested cars.
+			3- Reservations.
+		
+		- Company:
+			1- manage all reservations
+			2- Add or remove cars.
+
+
+	
