@@ -1,5 +1,6 @@
 package com.amro.androidproject2024;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -26,14 +27,12 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import com.google.gson.Gson;
-
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    String soso ;
+
     private Button loginButton;
     private Button signUpButton;
 
@@ -63,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
         Setup_control();
         setupSharedPrefs();
         checkPrefs();
+
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SignUpAsActivity.class);
+                startActivity(intent);
+            }
+        });
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
