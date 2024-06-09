@@ -14,4 +14,18 @@
     <string name="sign_up_as_renter_Btn_1">Sign Up As Renter</string>
     <string name="sign_up_as_company_btn_1">Sign Up As Company</string>
     <string name="login_here_text_1">login Here</string>
+    <string name="sign_up_as_rental_text_123">Sign Up</string>
+    <string name="full_name_sign_up__As_Rental">Full Name</string>
+    <string name="full_name_text_above_rental_sign">Full Name</string>
+    <string name="email_for_textView_sign_as_rental">Email</string>
+    <string name="phone_number_AsRental_Sign_up">Phone Number</string>
+    <string name="password_1_as_rental_text">password</string>
+    <string name="password_for_editText_AsRental_Sign_UP">Password</string>
+    <string name="confirm_password_as_rental_text_Sign_up">Confirm Password</string>
+    <string name="confirm_password_for_editText_AsRental_Sign_UP">Confirm Password</string>
+    <string name="sign_up_as_Rental_btn_00">Sign Up</string>
+    <string name="already_have_an_account_as_Rental_Sign_up">Already have an account?</string>
+    <string name="login_as_rental_Sign_up">login</string>
+    <string name="email____edit_text_hint_sign_up_as_rental">Email</string>
+    <string name="phone_number_edit_text_hint_sing_up_as_rental">Phone Number</string>
 </resources>

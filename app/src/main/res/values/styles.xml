@@ -20,4 +20,27 @@
         <item name="android:textSize">30sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="style_for_textView_above_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="style_for_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">20dp</item>
+        <item name="android:importantForAutofill">no</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:textColorHint">#757575</item>
+    </style>
 </resources>

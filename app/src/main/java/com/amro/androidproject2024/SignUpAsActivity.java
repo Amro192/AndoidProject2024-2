@@ -38,7 +38,8 @@ public class SignUpAsActivity extends AppCompatActivity {
         AsRenterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            Intent intent = new Intent(SignUpAsActivity.this, SignUpAsRentalActivity.class);
+            startActivity(intent);
             }
         });
 

@@ -14,31 +14,15 @@
 
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="10dp"
-        android:padding="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
         android:text="@string/email_label"
-        android:textSize="20sp" />
+        style="@style/style_for_textView_above_edit_text" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
         android:hint="@string/enter_your_email_login_page"
-        android:importantForAutofill="no"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
-        android:textColorHint="#757575"
-        tools:ignore="VisualLintTextFieldSize" />
+        tools:ignore="VisualLintTextFieldSize"
+        style="@style/style_for_edit_text" />
 
     <TextView
         android:id="@+id/textView3"
