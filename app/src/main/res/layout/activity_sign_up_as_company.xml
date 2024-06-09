@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Sign_up_as_Company_activity__"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpAsCompanyActivity">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:text="@string/sign_up_as_Company_text_above_page_123"
+            style="@style/text_style"/>
+
+        <TextView
+            android:text="@string/company_name_Sign_upAS_cOMPANY"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <EditText
+            android:id="@+id/companyName_edt_signAsCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/company_name_edit_text_SignAs_company"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:text="@string/phone_number_AsCompany_Sign"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <EditText
+            android:id="@+id/phoneNumberForCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number_hint_As_company"
+            android:importantForAutofill="no"
+            android:inputType="phone"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:text="@string/country_for_Company_sign_up"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <EditText
+            android:id="@+id/companyCountry_edt_signAsCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/palestine_text_for_edit_text_as_company"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:text="@string/city_of_company_sign_up"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <Spinner
+            android:id="@+id/citySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:text="@string/email_for_company_signup"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <EditText
+            android:id="@+id/emailForCompany_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:text="@string/password_for_company_sign_up_textveiw"
+            style="@style/style_for_textView_above_edit_text" />
+
+        <EditText
+            android:id="@+id/password_for_company_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_for_company_edit_text_sign_up"
+            android:inputType="textPassword"/>
+
+        <TextView
+            android:text="@string/confirm_password_textView_for_company_sign_up"
+            style="@style/style_for_textView_above_edit_text" />
+
+
+        <EditText
+            android:id="@+id/confirmPassword_for_company_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/confirm_password_for_company_sign_up_edit_text"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/Sign_up_as_company_button"
+            style="@style/login_button"
+            android:text="@string/sign_up_as_company_sign_up_text"
+            tools:ignore="VisualLintButtonSize" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:gravity="center"
+            android:text="@string/already_have_an_account_as_company_sign_up_text"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/loginBtn_login_as_company_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#FFFFFFFF"
+            android:text="@string/login_as_rental_Sign_up"
+            android:textColor="#000000"
+            app:iconSize="18dp"
+
+            />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
