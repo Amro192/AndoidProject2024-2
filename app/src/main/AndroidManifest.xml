@@ -20,6 +20,7 @@
             android:name=".add_admin_activity"
             android:exported="false" />
         <activity
+
             android:name=".SignUpAsCompanyActivity"
             android:exported="false"
             android:label="@string/title_activity_sign_up_as_company"
