@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_admin_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".add_admin_activity">
+
+    <TextView
+        android:text="@string/add_admin_mit_admin_page"
+        style="@style/text_style"/>
+
+    <TextView
+        android:text="@string/full_name_for_admin_text_mit"
+        style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/fullNameForAdmin_add_Admin_mit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/full_name_edit_text_mit_for_Admin_page"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:text="@string/email_for_admin_text_mitk_adminPage"
+        style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/emailForAdmin_add_Admin_mit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/email_edit_text_for_Admin_page_mitk"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:text="@string/password_text_view_for_add_admin_mitk"
+        style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/passwordForAdmin_add_Admin_mit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/password_for_admin_add_mit_123"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:text="@string/confirm_password_add_admin_mit_"
+        style="@style/style_for_textView_above_edit_text" />
+
+
+    <EditText
+        android:id="@+id/confirmPassword_for_admin_add_mit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/confirm_password_add_admin_mit"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+
+    <Button
+        android:id="@+id/Add_admin_button_mit"
+        style="@style/login_button"
+        android:text="@string/add_admin_btn_mit_page"
+        tools:ignore="VisualLintButtonSize" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Sign_up_as_rental_activity__"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SignUpAsRentalActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+    <TextView
+        android:text="@string/sign_up_as_rental_text_123"
+        style="@style/text_style"/>
+
+    <TextView
+        android:text="@string/full_name_text_above_rental_sign"
+        style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/fullNameAsRental_sign_up"
+        android:hint="@string/full_name_sign_up__As_Rental"
+        style="@style/style_for_edit_text"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:text="@string/email_for_textView_sign_as_rental"
+        style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/email_As_Rental_Sign_up"
+        android:hint="@string/email____edit_text_hint_sign_up_as_rental"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        style="@style/style_for_edit_text"/>
+
+    <TextView
+        android:text="@string/phone_number_AsRental_Sign_up"
+        style="@style/style_for_textView_above_edit_text" />
+   <EditText
+       android:id="@+id/phone_number_As_Rental_Sign_up"
+       android:hint="@string/phone_number_edit_text_hint_sing_up_as_rental"
+       android:importantForAutofill="no"
+       android:inputType="phone"
+       style="@style/style_for_edit_text"
+       />
+    <TextView
+    android:text="@string/password_1_as_rental_text"
+    style="@style/style_for_textView_above_edit_text" />
+
+    <EditText
+        android:id="@+id/password_As_Rental_Sign_up"
+        android:hint="@string/password_for_editText_AsRental_Sign_UP"
+        style="@style/style_for_edit_text"
+        android:inputType="textPassword"
+        android:importantForAutofill="no" />
+
+
+            <TextView
+        android:text="@string/confirm_password_as_rental_text_Sign_up"
+        style="@style/style_for_textView_above_edit_text" />
+
+            <EditText
+                android:id="@+id/confirm_password_As_Rental_Sign_up_editText"
+                android:hint="@string/confirm_password_for_editText_AsRental_Sign_UP"
+                style="@style/style_for_edit_text"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/Sign_up_as_rental_button"
+                style="@style/login_button"
+                android:text="@string/sign_up_as_Rental_btn_00"
+                tools:ignore="VisualLintButtonSize" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="130dp"
+                android:gravity="center"
+                android:text="@string/already_have_an_account_as_Rental_Sign_up"
+                android:textSize="16sp"
+                android:textStyle="bold|italic" />
+
+            <Button
+                android:id="@+id/loginbtn_login_as_rental"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="#FFFFFFFF"
+                android:text="@string/login_as_rental_Sign_up"
+                android:textColor="#000000"
+                app:iconSize="18dp"
+
+                />
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </ScrollView>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
