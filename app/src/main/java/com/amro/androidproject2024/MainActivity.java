@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Admin ID: " + idRole);
                                         // Redirect to admin activity
+
                                         break;
                                     case "rental":
                                         Toast.makeText(MainActivity.this, "Logged in as Rental. Rental ID: " + idRole, Toast.LENGTH_SHORT).show();
