@@ -152,4 +152,14 @@
     <string name="confirm_password_for_company_sign_up_edit_text">Confirm Password</string>
     <string name="sign_up_as_company_sign_up_text">Sign Up</string>
     <string name="already_have_an_account_as_company_sign_up_text">Already have an account?</string>
+    <string name="add_admin_mit_admin_page">Add Admin</string>
+    <string name="full_name_for_admin_text_mit">Full Name</string>
+    <string name="full_name_edit_text_mit_for_Admin_page">Full Name</string>
+    <string name="email_for_admin_text_mitk_adminPage">Email</string>
+    <string name="email_edit_text_for_Admin_page_mitk">Email</string>
+    <string name="password_text_view_for_add_admin_mitk">Password</string>
+    <string name="password_for_admin_add_mit_123">Password</string>
+    <string name="confirm_password_add_admin_mit_">Confirm Password</string>
+    <string name="confirm_password_add_admin_mit">Confirm Password</string>
+    <string name="add_admin_btn_mit_page">Add Admin</string>
 </resources>
