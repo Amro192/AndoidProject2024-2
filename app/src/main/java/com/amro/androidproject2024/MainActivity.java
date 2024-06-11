@@ -111,13 +111,17 @@ public class MainActivity extends AppCompatActivity {
                             } else if (jsonResponse.has("idRole") && jsonResponse.has("role")) {
                                 String idRole = jsonResponse.getString("idRole");
                                 String role = jsonResponse.getString("role");
+                                String user_id = jsonResponse.getString("user_id");
+                                String name = jsonResponse.getString("Name");
+
 
                                 // Handle different roles
                                 switch (role) {
                                     case "admin":
-                                        Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole, Toast.LENGTH_SHORT).show();
-                                        Log.d("Tag", "Admin ID: " + idRole);
+                                        Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole + " User ID: " + user_id, Toast.LENGTH_SHORT).show();
+                                        Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name);
                                         // Redirect to admin activity
+                                        // use the user id and admin id to do many things in admin page
 
                                         break;
                                     case "rental":
