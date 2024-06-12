@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Admin_customer_mange_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin_customer_mange_activity">
+
+    <TextView
+        android:text="@string/our_app_customers_admin_mit_12344"
+        style="@style/text_style"/>
+
+    <ListView
+        android:id="@+id/listView_Customer_admin_mit"
+        android:layout_width="390dp"
+        android:layout_height="450dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btn_delete_customers_admin"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#356DE3"
+        android:text="@string/delete_customer_admin_mit_32131" />
+
+    <Button
+        android:id="@+id/buttom_back_admin_in_customer_mange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#356DE3"
+        android:text="Back" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
