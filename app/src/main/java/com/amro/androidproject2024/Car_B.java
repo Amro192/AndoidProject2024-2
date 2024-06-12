@@ -17,6 +17,7 @@ public class Car_B {
 
     }
 
+
     public String getCompanyName() {
         return companyName;
     }

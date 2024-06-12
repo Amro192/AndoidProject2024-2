@@ -136,17 +136,25 @@ public class MainActivity extends AppCompatActivity {
                                         break;
                                     case "rental":
                                         Toast.makeText(MainActivity.this, "Logged in as Rental. Rental ID: " + idRole, Toast.LENGTH_SHORT).show();
-                                        Log.d("Tag", "Rental ID: " + idRole);
-                                        // Redirect to rental activity
+                                        Intent rentalIntent = new Intent(MainActivity.this, CarList.class);
+                                        rentalIntent.putExtra("name", name);
+                                        rentalIntent.putExtra("id", idRole);
+                                        startActivity(rentalIntent);
                                         break;  //admin@example.com admin
                                     case "company":
                                         Toast.makeText(MainActivity.this, "Logged in as Company. Company ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Company ID: " + idRole);
+
                                         Intent companyIntent = new Intent(MainActivity.this, CarList.class);
                                         companyIntent.putExtra("name", name);
                                         companyIntent.putExtra("id", idRole);
                                         Log.d( "Tag", "Company ID: " + idRole);
                                         startActivity(companyIntent);
+
+                                        Intent intent2 = new Intent(MainActivity.this, CarList.class);
+                                        intent2.putExtra("name", name);
+                                        intent2.putExtra("id", idRole);
+                                        startActivity(intent2);
                                         // Redirect to company activity
                                         break;
                                     default:
