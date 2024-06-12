@@ -62,6 +62,9 @@ public class test_bootunssss extends AppCompatActivity {
             @Override
             public void onClick(View v) {
            Intent intent = new Intent(test_bootunssss.this, Admin_Company_Mange_Activity.class);
+                intent.putExtra("user_id", userId);
+                intent.putExtra("user_name", userName);
+                intent.putExtra("admin_id", userRole);
            startActivity(intent);
             }
         });

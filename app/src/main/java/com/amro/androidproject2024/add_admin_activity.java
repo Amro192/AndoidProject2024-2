@@ -38,6 +38,7 @@ public class add_admin_activity extends AppCompatActivity {
        private Button Add_admin_button_mit;
 
        private Button buttom_back_admin_in_add_admin_mit;
+    private String userName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +65,7 @@ public class add_admin_activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(add_admin_activity.this, test_bootunssss.class);
+                intent.putExtra("user_name", userName);
                 startActivity(intent);
 
             }
