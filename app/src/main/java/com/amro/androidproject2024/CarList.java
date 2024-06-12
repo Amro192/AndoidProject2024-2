@@ -23,10 +23,8 @@ import java.util.List;
 public class CarList extends AppCompatActivity {
     private final List<Car_B> cars = new ArrayList<>();
     private RecyclerView recycler;
-
     private static final String BASE_URL_COMPANY = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
     private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
-
     String id;
     String user_id;
     String companiesCarsUrl;
@@ -47,13 +45,13 @@ public class CarList extends AppCompatActivity {
         companiesCarsUrl = BASE_URL_COMPANY + id;
         userAllCarsUrl = USER_ALL_CARS_URL;
 
-
         recycler.setLayoutManager(new LinearLayoutManager(this));
         loadItems();
     }
 
     private void loadItems() {
         cars.clear();
+
         StringRequest stringRequest = new StringRequest(Request.Method.GET, companiesCarsUrl,
                 response -> {
                     try {

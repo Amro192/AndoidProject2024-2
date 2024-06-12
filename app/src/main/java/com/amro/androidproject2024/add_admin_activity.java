@@ -67,7 +67,7 @@ public class add_admin_activity extends AppCompatActivity {
         buttom_back_admin_in_add_admin_mit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(add_admin_activity.this, test_bootunssss.class);
+                Intent intent = new Intent(add_admin_activity.this, AdminButtons.class);
                 intent.putExtra("user_name", userName);
                 Intent intent2 = new Intent(add_admin_activity.this, AdminButtons.class);
                 startActivity(intent2);
