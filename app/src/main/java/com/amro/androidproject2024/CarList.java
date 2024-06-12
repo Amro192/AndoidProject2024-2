@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -23,20 +24,26 @@ public class CarList extends AppCompatActivity {
     private final List<Car_B> cars = new ArrayList<>();
     private RecyclerView recycler;
 
-    private static final String BASE_URL = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
+    private static final String BASE_URL_COMPANY = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
+    private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
+
     String id;
-    String url;
+    String companiesCarsUrl;
+    String userAllCarsUrl;
+    private RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_car_list);
+        queue = Volley.newRequestQueue(this);
 
         recycler = findViewById(R.id.car_recycler);
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        url = BASE_URL + id;
+        companiesCarsUrl = BASE_URL_COMPANY + id;
+        userAllCarsUrl = USER_ALL_CARS_URL;
 
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -44,8 +51,8 @@ public class CarList extends AppCompatActivity {
     }
 
     private void loadItems() {
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+        cars.clear();
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, companiesCarsUrl,
                 response -> {
                     try {
 
@@ -76,8 +83,40 @@ public class CarList extends AppCompatActivity {
                     Toast.makeText(CarList.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
                 }, error -> Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show());
+        StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,
+                response -> {
+                    try {
 
-        Volley.newRequestQueue(CarList.this).add(stringRequest);
+                        JSONArray array = new JSONArray(response);
+                        for (int i = 0; i < array.length(); i++) {
+
+                            JSONObject object = array.getJSONObject(i);
+
+
+                            String make = object.getString("Make");
+                            String model = object.getString("Model");
+                            String year = object.getString("Year");
+                            String price = object.getString("RentPricePerDay");
+                            String image = object.getString("Image");
+                            String CompanyID = object.getString("CompanyID");
+
+
+                            Car_B car = new Car_B(make, model, year, price, image, CompanyID);
+                            cars.add(car);
+                        }
+
+                    } catch (Exception ignored) {
+
+                    }
+
+                    Car_Rcycler_Adapter adapter = new Car_Rcycler_Adapter(CarList.this, cars);
+                    recycler.setAdapter(adapter);
+                    Toast.makeText(CarList.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
+
+                }, error -> Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show());
+
+        queue.add(stringRequest);
+        queue.add(allCarsStringRequest);
 
     }
 }
