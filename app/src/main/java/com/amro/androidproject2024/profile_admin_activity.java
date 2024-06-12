@@ -1,5 +1,6 @@
 package com.amro.androidproject2024;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ public class profile_admin_activity extends AppCompatActivity {
 
     private Button btn_edit_profile_admin;
 
+    private  int userId;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +32,13 @@ public class profile_admin_activity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        setupViews();
+        Intent intent = getIntent();
+        if (intent != null) {
+            userId = intent.getIntExtra("user_id", -1);
+            userName = intent.getStringExtra("user_name");
+            setupViews();
+        }
+
     }
 
     public void setupViews() {

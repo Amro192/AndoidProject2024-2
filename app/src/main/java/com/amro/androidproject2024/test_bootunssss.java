@@ -19,7 +19,6 @@ public class test_bootunssss extends AppCompatActivity {
     private Button button_admin_show_company;
 
     private Button button_add_admin_mitri;
-    private Button botton_edit_profile_mitri_admin;
 
     private int userId;
     private String userName;
@@ -73,14 +72,8 @@ public class test_bootunssss extends AppCompatActivity {
             @Override
             public void onClick(View v) {
            Intent intent = new Intent(test_bootunssss.this, add_admin_activity.class);
+           intent.putExtra("user_name", userName);
            startActivity(intent);
-            }
-        });
-
-        botton_edit_profile_mitri_admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
@@ -97,7 +90,6 @@ public class test_bootunssss extends AppCompatActivity {
         button_admin_show_customer = findViewById(R.id.button_admin_show_customer);
         button_admin_show_company = findViewById(R.id.button_admin_show_company);
         button_add_admin_mitri = findViewById(R.id.button_add_admin_mitri);
-        botton_edit_profile_mitri_admin = findViewById(R.id.botton_edit_profile_mitri_admin);
         text_view_admin_show_name = findViewById(R.id.text_view_admin_show_name);
         botton_logout_mitri_admin = findViewById(R.id.botton_logout_mitri_admin);
 

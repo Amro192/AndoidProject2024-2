@@ -50,7 +50,10 @@ public class add_admin_activity extends AppCompatActivity {
             return insets;
         });
         setUpValues();
-
+        Intent intent = getIntent();
+        if (intent != null) {
+            userName = intent.getStringExtra("user_name");
+        }
         Add_admin_button_mit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
