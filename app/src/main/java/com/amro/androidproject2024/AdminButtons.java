@@ -18,7 +18,6 @@ public class AdminButtons extends AppCompatActivity {
     private Button button_admin_show_company;
 
     private Button button_add_admin_mitri;
-    private Button botton_edit_profile_mitri_admin;
 
     private int userId;
     private String userName;
@@ -61,6 +60,9 @@ public class AdminButtons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
            Intent intent = new Intent(AdminButtons.this, Admin_Company_Mange_Activity.class);
+                intent.putExtra("user_id", userId);
+                intent.putExtra("user_name", userName);
+                intent.putExtra("admin_id", userRole);
            startActivity(intent);
             }
         });
@@ -68,15 +70,9 @@ public class AdminButtons extends AppCompatActivity {
         button_add_admin_mitri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+           intent.putExtra("user_name", userName);
            Intent intent = new Intent(AdminButtons.this, add_admin_activity.class);
            startActivity(intent);
-            }
-        });
-
-        botton_edit_profile_mitri_admin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 
@@ -93,7 +89,6 @@ public class AdminButtons extends AppCompatActivity {
         button_admin_show_customer = findViewById(R.id.button_admin_show_customer);
         button_admin_show_company = findViewById(R.id.button_admin_show_company);
         button_add_admin_mitri = findViewById(R.id.button_add_admin_mitri);
-        botton_edit_profile_mitri_admin = findViewById(R.id.botton_edit_profile_mitri_admin);
         text_view_admin_show_name = findViewById(R.id.text_view_admin_show_name);
         botton_logout_mitri_admin = findViewById(R.id.botton_logout_mitri_admin);
 

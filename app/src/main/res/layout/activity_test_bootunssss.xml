@@ -45,15 +45,6 @@
         android:text="        Add Admin        " />
 
     <Button
-        android:id="@+id/botton_edit_profile_mitri_admin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#356DE3"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
-        android:text="       Edit Profile       " />
-
-    <Button
         android:id="@+id/botton_logout_mitri_admin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

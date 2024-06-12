@@ -79,8 +79,10 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
         buttom_back_admin_in_customer_mange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
-                startActivity(intent);
+                Intent intent = new Intent(Admin_customer_mange_activity.this, test_bootunssss.class);
+                intent.putExtra("user_name", userName);
+                Intent intent3 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+                startActivity(intent3);
             }
         });
     }
