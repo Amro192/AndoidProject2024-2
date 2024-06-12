@@ -1,5 +1,6 @@
 package com.amro.androidproject2024;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -9,8 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -24,7 +23,9 @@ public class CarList extends AppCompatActivity {
     private final List<Car_B> cars = new ArrayList<>();
     private RecyclerView recycler;
 
-    private static final String BASE_URL = "http://10.0.2.2:80/androidPr/get_cars.php";
+    private static final String BASE_URL = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
+    String id;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,9 @@ public class CarList extends AppCompatActivity {
         setContentView(R.layout.activity_car_list);
 
         recycler = findViewById(R.id.car_recycler);
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+        url = BASE_URL + id;
 
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -41,50 +45,37 @@ public class CarList extends AppCompatActivity {
 
     private void loadItems() {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                response -> {
+                    try {
+
+                        JSONArray array = new JSONArray(response);
+                        for (int i = 0; i < array.length(); i++) {
+
+                            JSONObject object = array.getJSONObject(i);
 
 
-                        try {
-
-                            JSONArray array = new JSONArray(response);
-                            for (int i = 0; i < array.length(); i++) {
-
-                                JSONObject object = array.getJSONObject(i);
-
-
-                                String make = object.getString("make");
-                                String model = object.getString("model");
-                                String year = object.getString("year");
-                                String price = object.getString("price");
-                                String companyName = object.getString("companyName");
-                                String image = object.getString("image");
+                            String make = object.getString("Make");
+                            String model = object.getString("Model");
+                            String year = object.getString("Year");
+                            String price = object.getString("RentPricePerDay");
+                            String image = object.getString("Image");
+                            String companyID = object.getString("CompanyID");
 
 
-                                Car_B car = new Car_B(make, model, year, price, companyName, image);
-                                cars.add(car);
-                            }
-
-                        } catch (Exception e) {
-
+                            Car_B car = new Car_B(make, model, year, price, image, companyID);
+                            cars.add(car);
                         }
 
-                        Car_Rcycler_Adapter adapter = new Car_Rcycler_Adapter(CarList.this,
-                                cars);
-                        recycler.setAdapter(adapter);
+                    } catch (Exception ignored) {
 
                     }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
+                    Car_Rcycler_Adapter adapter = new Car_Rcycler_Adapter(CarList.this, cars);
+                    recycler.setAdapter(adapter);
+                    Toast.makeText(CarList.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show();
-
-            }
-        });
+                }, error -> Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show());
 
         Volley.newRequestQueue(CarList.this).add(stringRequest);
 

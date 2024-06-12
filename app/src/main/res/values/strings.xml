@@ -162,4 +162,121 @@
     <string name="confirm_password_add_admin_mit_">Confirm Password</string>
     <string name="confirm_password_add_admin_mit">Confirm Password</string>
     <string name="add_admin_btn_mit_page">Add Admin</string>
+
+
+    <string name="todo">TODO</string>
+    <string name="continue_str">CONNECT</string>
+    <string name="signIn_text">Hello There,\nWelcome Back</string>
+    <string name="signIn">Sign In</string>
+    <string name="email_hint">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="connectSlogan">Capital Cars</string>
+    <string name="sign_in_message">Sign in to continue</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="signup_loginScreen_message">Don\'t have an account? Sign up</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="already_have_an_account_sign_in_here">Already have an account? Sign in here.</string>
+    <string name="create_an_account_to_get_started">Create an account to get started</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="country">Country</string>
+
+
+    <string-array name="gender_options">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+
+    <string-array name="countries_array">
+        <item>PS</item>
+        <item>JO</item>
+        <item>DE</item>
+        <item>JP</item>
+        <item>ES</item>
+    </string-array>
+
+
+    <string-array name="cities_Palestine">
+        <item>Hebron</item>
+        <item>Jenin</item>
+        <item>Jerusalem</item>
+        <item>Gaza</item>
+        <item>Nablus</item>
+    </string-array>
+
+    <string-array name="cities_Germany">
+        <item>Berlin</item>
+        <item>Hamburg</item>
+        <item>Munich</item>
+        <item>Frankfurt</item>
+        <item>Cologne</item>
+    </string-array>
+
+    <string-array name="cities_Spain">
+        <item>Madrid</item>
+        <item>Barcelona</item>
+        <item>Valencia</item>
+        <item>Seville</item>
+        <item>Zaragoza</item>
+    </string-array>
+
+    <string-array name="cities_Jordan">
+        <item>Amman</item>
+        <item>Irbid</item>
+        <item>Zarqa</item>
+        <item>Aqaba</item>
+        <item>Madaba</item>
+    </string-array>
+
+    <string-array name="cities_Japan">
+        <item>Tokyo</item>
+        <item>Osaka</item>
+        <item>Kyoto</item>
+        <item>Sapporo</item>
+        <item>Fukuoka</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_drawer_close" />
+    <string name="navigation_drawer_open" />
+    <string name="gender">Gender</string>
+    <string name="city">City</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="home">Home</string>
+    <string name="cars">Vehicles</string>
+    <string name="reservations">Reservations</string>
+    <string name="favorites">Favorites</string>
+    <string name="special_offers">Offers</string>
+    <string name="call_us_or_find_us">Contact</string>
+    <string name="logout">Logout</string>
+    <string name="main_menu_group_1">Navigation</string>
+    <string name="main_menu_group_2">Utility</string>
+    <string name="profile">Profile</string>
+    <string name="search">Search</string>
+    <string name="mail">Mail</string>
+    <string name="maps">Maps</string>
+    <string name="call">Call</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_customer">Delete Customer</string>
+    <string name="add_admin">Add Admin</string>
+    <string name="all_reservations">All Reservations</string>
+    <string name="admin">Admin</string>
+    <string name="fill_new_admin_info_below">Fill new admin info below</string>
+
+
 </resources>

@@ -120,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
                                     case "admin":
                                         Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole + " User ID: " + user_id, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name);
+                                        Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole, Toast.LENGTH_SHORT).show();
+
+                                        Log.d("Tag", "Admin ID: " + idRole);
                                         // Redirect to admin activity
                                         // use the user id and admin id to do many things in admin page
 
@@ -132,6 +135,11 @@ public class MainActivity extends AppCompatActivity {
                                     case "company":
                                         Toast.makeText(MainActivity.this, "Logged in as Company. Company ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Company ID: " + idRole);
+                                        Intent intent = new Intent(MainActivity.this, CarList.class);
+                                        intent.putExtra("name", name);
+                                        intent.putExtra("id", idRole);
+                                        Log.d( "Tag", "Company ID: " + idRole);
+                                        startActivity(intent);
                                         // Redirect to company activity
                                         break;
                                     default:

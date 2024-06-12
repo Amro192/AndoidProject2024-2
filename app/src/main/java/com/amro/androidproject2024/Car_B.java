@@ -8,7 +8,7 @@ public class Car_B {
     private String companyName;
     private String image;
 
-    public Car_B(String make, String model, String year, String price, String companyName, String image) {
+    public Car_B(String make, String model, String year, String price, String image, String companyID) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -41,27 +41,4 @@ public class Car_B {
         return price;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
 }
