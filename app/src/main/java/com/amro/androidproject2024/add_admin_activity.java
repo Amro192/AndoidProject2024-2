@@ -1,6 +1,8 @@
 package com.amro.androidproject2024;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +36,8 @@ public class add_admin_activity extends AppCompatActivity {
        private EditText confirmPassword_for_admin_add_mit;
 
        private Button Add_admin_button_mit;
+
+       private Button buttom_back_admin_in_add_admin_mit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,34 +59,45 @@ public class add_admin_activity extends AppCompatActivity {
                 }
             }
         });
+
+        buttom_back_admin_in_add_admin_mit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(add_admin_activity.this, test_bootunssss.class);
+                startActivity(intent);
+
+            }
+        });
     }
 
-    public void add_Admin(){
+    public void add_Admin() {
         String url = "http://10.0.2.2:80/androidPr/AddAdmin.php";
         RequestQueue queue = Volley.newRequestQueue(add_admin_activity.this);
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                if (response.startsWith("<") && response.endsWith(">")) {
-                    // The response contains HTML tags, handle it accordingly
-                    Toast.makeText(add_admin_activity.this, "Server error occurred", Toast.LENGTH_SHORT).show();
-                } else {
-                    // Parse the response as JSON
-                    try {
-                        JSONObject jsonResponse = new JSONObject(response);
-                        String message = jsonResponse.getString("message");
-                        //boolean success = jsonResponse.getBoolean("success");
-                        // Handle the response message
-                        Toast.makeText(add_admin_activity.this, message, Toast.LENGTH_SHORT).show();
+                Log.e("Tag", "RESPONSE: " + response);  // Log the raw response
 
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        // Handle JSON parsing error
-                        Toast.makeText(add_admin_activity.this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
-                    }
+                if (response == null || response.trim().isEmpty()) {
+                    Log.e("Tag", "Empty response from the server");
+                    Toast.makeText(add_admin_activity.this, "Server returned an empty response.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    String message = jsonResponse.getString("message");
+                    // Handle the response message
+                    Toast.makeText(add_admin_activity.this, message, Toast.LENGTH_SHORT).show();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    // Handle JSON parsing error
+                    Toast.makeText(add_admin_activity.this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
+                    Log.e("Tag", "Invalid JSON response: " + response);
                 }
             }
+
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -93,12 +108,16 @@ public class add_admin_activity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
                 params.put("email", emailForAdmin_add_Admin_mit.getText().toString().trim());
-               params.put("password", passwordForAdmin_add_Admin_mit.getText().toString().trim());
+                params.put("password", passwordForAdmin_add_Admin_mit.getText().toString().trim());
                 params.put("name", fullNameForAdmin_add_Admin_mit.getText().toString().trim());
                 return params;
             }
         };
+
+        queue.add(request);
     }
+
+
 
     public void setUpValues(){
         fullNameForAdmin_add_Admin_mit = findViewById(R.id.fullNameForAdmin_add_Admin_mit);
@@ -106,6 +125,7 @@ public class add_admin_activity extends AppCompatActivity {
         passwordForAdmin_add_Admin_mit = findViewById(R.id.passwordForAdmin_add_Admin_mit);
         confirmPassword_for_admin_add_mit = findViewById(R.id.confirmPassword_for_admin_add_mit);
         Add_admin_button_mit = findViewById(R.id.Add_admin_button_mit);
+        buttom_back_admin_in_add_admin_mit = findViewById(R.id.buttom_back_admin_in_add_admin_mit);
     }
 
     private boolean isFullNameValid() {
@@ -138,6 +158,10 @@ public class add_admin_activity extends AppCompatActivity {
             passwordForAdmin_add_Admin_mit.setError("Password is required");
             return false;
         }
+        if(password.length() < 6){
+            passwordForAdmin_add_Admin_mit.setError("Password must be at least 6 characters");
+            return false;
+        }
         return true;
     }
 
@@ -145,6 +169,9 @@ public class add_admin_activity extends AppCompatActivity {
         String ConfirmPassword = confirmPassword_for_admin_add_mit.getText().toString();
         if (ConfirmPassword.isEmpty()) {
             confirmPassword_for_admin_add_mit.setError("Confirm Password is required");
+            return false;
+        }if(ConfirmPassword.length() < 6){
+            confirmPassword_for_admin_add_mit.setError("Password must be at least 6 characters");
             return false;
         }
         return true;
@@ -165,7 +192,7 @@ public class add_admin_activity extends AppCompatActivity {
         if (!isPasswordValid()) return false;
         if (!isConfirmPasswordValid()) return false;
         if (!doPasswordsMatch()) return false;
-        if (isFullNameValid()) return false;
+        if (!isFullNameValid()) return false;
         return true;
     }
 }

@@ -122,6 +122,11 @@ public class MainActivity extends AppCompatActivity {
                                         Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name);
                                         // Redirect to admin activity
                                         // use the user id and admin id to do many things in admin page
+                                        Intent intent = new Intent(MainActivity.this, test_bootunssss.class);
+                                        intent.putExtra("user_id", user_id);
+                                        intent.putExtra("user_name", name);
+                                        intent.putExtra("admin_id", idRole);
+                                        startActivity(intent);
 
                                         break;
                                     case "rental":
@@ -190,7 +195,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupSharedPrefs() {
-        prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
+
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileAdminLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".profile_admin_activity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:importantForAccessibility="no"
+        app:srcCompat="@drawable/adminphoto" />
+
+    <TextView
+        android:id="@+id/name_admin_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/email_admin_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5sp"
+        android:text=""
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
+
+    <Button
+        android:id="@+id/btn_edit_profile_admin"
+        style="@style/login_button"
+        android:text="@string/edit_profile_btn_for_admin"
+        tools:ignore="VisualLintButtonSize" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

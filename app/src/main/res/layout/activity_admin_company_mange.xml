@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Admin_Company_Mange_Activity_mit_super"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Admin_Company_Mange_Activity">
+
+    <TextView
+        android:text="@string/our_company_app_Activity_mange_mit"
+        style="@style/text_style"/>
+
+    <ListView
+        android:id="@+id/listView_Company_Mange_Activity_admin_mit"
+        android:layout_width="390dp"
+        android:layout_height="450dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btn_delete_company_mit_admin"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#356DE3"
+        android:text="@string/delete_company_mit_mange_admin" />
+
+    <Button
+        android:id="@+id/button_back_admin_in_Company_mange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#356DE3"
+        android:text="@string/back_btn_company_mange_admin_mit" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
