@@ -144,11 +144,10 @@ public class MainActivity extends AppCompatActivity {
                                     case "company":
                                         Toast.makeText(MainActivity.this, "Logged in as Company. Company ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Company ID: " + idRole);
-                                        Intent intent = new Intent(MainActivity.this, CarList.class);
-                                        intent.putExtra("name", name);
-                                        intent.putExtra("id", idRole);
-                                        Log.d( "Tag", "Company ID: " + idRole);
-                                        startActivity(intent);
+                                        Intent intent2 = new Intent(MainActivity.this, CarList.class);
+                                        intent2.putExtra("name", name);
+                                        intent2.putExtra("id", idRole);
+                                        startActivity(intent2);
                                         // Redirect to company activity
                                         break;
                                     default:
