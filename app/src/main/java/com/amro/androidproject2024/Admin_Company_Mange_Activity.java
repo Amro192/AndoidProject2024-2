@@ -30,7 +30,7 @@ import java.util.ArrayList;
 
 public class Admin_Company_Mange_Activity extends AppCompatActivity {
 
-   private ListView listView_Company_Mange_Activity_admin_mit;
+   private ListView Company_Mange_Activity_admin_mit;
 
    private Button btn_delete_company_mit_admin;
 
@@ -63,7 +63,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
         });
     }
     public void setupview(){
-        listView_Company_Mange_Activity_admin_mit = findViewById(R.id.listView_Company_Mange_Activity_admin_mit);
+        Company_Mange_Activity_admin_mit = findViewById(R.id.Company_Mange_Activity_admin_mit);
         btn_delete_company_mit_admin = findViewById(R.id.btn_delete_company_mit_admin);
         button_back_admin_in_Company_mange = findViewById(R.id.button_back_admin_in_Company_mange);
     }
@@ -72,30 +72,31 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         String url = "http://10.0.2.2:80/androidPr/ReturnCompany.php";
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(JSONArray response) {
-                        ArrayList<Company_admin_class>  companyList = new ArrayList<>();
+                    public void onResponse(JSONObject response) {
                         try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jsonObject = response.getJSONObject(i);
+                            JSONArray companies = response.getJSONArray("companies");
+                            ArrayList<Company_admin_class> companyList = new ArrayList<>();
+                            for (int i = 0; i < companies.length(); i++) {
+                                JSONObject jsonObject = companies.getJSONObject(i);
                                 int companyID = jsonObject.getInt("CompanyID");
                                 int userID = jsonObject.getInt("UserID");
                                 String companyName = jsonObject.getString("CompanyName");
                                 String email = jsonObject.getString("Email");
                                 String phone = jsonObject.getString("Phone");
                                 String address = jsonObject.getString("Address");
-                                Log.e("Tag", "RESPONSE: " + companyID + " " + userID + " " + companyName +  " " + email + " " + phone+ " " + address);
+                                Log.e("Tag", "RESPONSE: " + companyID + " " + userID + " " + companyName + " " + email + " " + phone + " " + address);
                                 // Create an instance of Company_admin_class and add it to companyList
                                 Company_admin_class company = new Company_admin_class(companyID, userID, companyName, email, phone, address);
                                 companyList.add(company);
                             }
-                            ArrayAdapter<Company_admin_class>  adapter = new ArrayAdapter<>(
+                            ArrayAdapter<Company_admin_class> adapter = new ArrayAdapter<>(
                                     Admin_Company_Mange_Activity.this,
                                     android.R.layout.simple_list_item_1,
                                     companyList);
-                            listView_Company_Mange_Activity_admin_mit.setAdapter(adapter);
+                            Company_Mange_Activity_admin_mit.setAdapter(adapter);
                         } catch (JSONException e) {
                             Log.e("AdminActivity", "JSON parsing error: " + e.getMessage());
                         }
@@ -108,9 +109,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
                     }
                 });
 
-        queue.add(jsonArrayRequest);
-
+        queue.add(jsonObjectRequest);
     }
-
 
 }
