@@ -77,4 +77,14 @@
         android:text="@string/add_admin_btn_mit_page"
         tools:ignore="VisualLintButtonSize" />
 
+    <Button
+        android:id="@+id/buttom_back_admin_in_add_admin_mit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#356DE3"
+        android:text="Back" />
+
+
+
 </androidx.appcompat.widget.LinearLayoutCompat>

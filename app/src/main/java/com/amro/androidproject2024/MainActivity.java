@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBox;
     private SharedPreferences prefs;
     private SharedPreferences.Editor editor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -73,11 +74,11 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String emailst =email.getText().toString();
+                String emailst = email.getText().toString();
                 String passwordst = password.getText().toString();
 
-                if(checkBox.isChecked()){
-                    if(!flag) {
+                if (checkBox.isChecked()) {
+                    if (!flag) {
                         editor.putString(EMAIL, emailst);
                         editor.putString(PASSWORD, passwordst);
                         editor.putBoolean(FLAG, true);
@@ -91,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-   public void loginSetUp(String email, String password){ //127.0.0.1 //10.0.2.2
+
+    public void loginSetUp(String email, String password) { //127.0.0.1 //10.0.2.2
         String url = "http://10.0.2.2:80/androidPr/Login.php";
         RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
 
@@ -125,6 +127,11 @@ public class MainActivity extends AppCompatActivity {
                                         Log.d("Tag", "Admin ID: " + idRole);
                                         // Redirect to admin activity
                                         // use the user id and admin id to do many things in admin page
+                                        Intent intent = new Intent(MainActivity.this, test_bootunssss.class);
+                                        intent.putExtra("user_id", user_id);
+                                        intent.putExtra("user_name", name);
+                                        intent.putExtra("admin_id", idRole);
+                                        startActivity(intent);
 
                                         break;
                                     case "rental":
@@ -179,18 +186,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void Setup_control(){
-        loginButton=findViewById(R.id.loginButton);
-        signUpButton=findViewById(R.id.signUpButton);
-        email=findViewById(R.id.email);
-        password=findViewById(R.id.password);
-        checkBox=findViewById(R.id.checkBox);
+    public void Setup_control() {
+        loginButton = findViewById(R.id.loginButton);
+        signUpButton = findViewById(R.id.signUpButton);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        checkBox = findViewById(R.id.checkBox);
     }
 
     private void checkPrefs() {
         flag = prefs.getBoolean(FLAG, false);
 
-        if(flag){
+        if (flag) {
             String emaill = prefs.getString(EMAIL, "");
             String passwordd = prefs.getString(PASSWORD, "");
             email.setText(emaill);
@@ -200,7 +207,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupSharedPrefs() {
-        prefs= PreferenceManager.getDefaultSharedPreferences(this);
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
         editor = prefs.edit();
+
     }
 }

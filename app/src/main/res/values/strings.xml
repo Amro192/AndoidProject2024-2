@@ -162,6 +162,13 @@
     <string name="confirm_password_add_admin_mit_">Confirm Password</string>
     <string name="confirm_password_add_admin_mit">Confirm Password</string>
     <string name="add_admin_btn_mit_page">Add Admin</string>
+    <string name="edit_profile_btn_for_admin">Edit profile</string>
+    <string name="our_app_customers_admin_mit_12344">Our App Customers</string>
+    <string name="delete_customer_admin_mit_32131">Delete Customer</string>
+    <string name="our_company_app_Activity_mange_mit">Our Company APP</string>
+    <string name="delete_company_mit_mange_admin">Delete Company</string>
+    <string name="back_btn_company_mange_admin_mit">Back</string>
+
 
 
     <string name="todo">TODO</string>
@@ -277,6 +284,4 @@
     <string name="all_reservations">All Reservations</string>
     <string name="admin">Admin</string>
     <string name="fill_new_admin_info_below">Fill new admin info below</string>
-
-
 </resources>
