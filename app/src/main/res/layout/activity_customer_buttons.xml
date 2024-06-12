@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="100dp"
+    android:orientation="vertical"
+    tools:context=".AdminButtons">
+
+
+    <TextView
+        android:id="@+id/welcomeCustomer"
+        style="@style/text_style"
+        android:text="" />
+
+
+    <Button
+        android:id="@+id/showAllCars"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:gravity="center"
+        android:text="Show All Cars" />
+
+
+
+    <Button
+        android:id="@+id/showReservations"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:text="Show Reservations" />
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:text="Log out" />
+
+
+</LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".profile_admin_activity">
+    tools:context=".profileAdminActivity">
 
 
     <ImageView
@@ -16,7 +16,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:importantForAccessibility="no"
-        app:srcCompat="@drawable/adminphoto" />
+        />
 
     <TextView
         android:id="@+id/name_admin_textView"

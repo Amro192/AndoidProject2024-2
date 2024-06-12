@@ -17,16 +17,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CustomerButtons"
+            android:exported="false" />
+        <activity
             android:name=".Admin_Company_Mange_Activity"
             android:exported="false" />
         <activity
-            android:name=".test_bootunssss"
+            android:name=".AdminButtons"
             android:exported="false" />
         <activity
             android:name=".Admin_customer_mange_activity"
             android:exported="false" />
         <activity
-            android:name=".profile_admin_activity"
+            android:name=".profileAdminActivity"
             android:exported="false" />
         <activity
             android:name=".add_admin_activity"

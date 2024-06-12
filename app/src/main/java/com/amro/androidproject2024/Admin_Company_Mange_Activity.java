@@ -19,7 +19,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -56,7 +55,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
         button_back_admin_in_Company_mange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_Company_Mange_Activity.this, test_bootunssss.class);
+                Intent intent = new Intent(Admin_Company_Mange_Activity.this, AdminButtons.class);
 
                 startActivity(intent);
             }

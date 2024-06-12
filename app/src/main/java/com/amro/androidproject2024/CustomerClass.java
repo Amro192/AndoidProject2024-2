@@ -1,6 +1,6 @@
 package com.amro.androidproject2024;
 
-public class CustomerClassm {
+public class CustomerClass {
 
     private int userID;
     private int rentalID;
@@ -9,7 +9,7 @@ public class CustomerClassm {
     private String phone;
 
     // Constructor
-    public CustomerClassm(int userID, int rentalID, String name, String email, String phone) {
+    public CustomerClass(int userID, int rentalID, String name, String email, String phone) {
         this.userID = userID;
         this.rentalID = rentalID;
         this.name = name;

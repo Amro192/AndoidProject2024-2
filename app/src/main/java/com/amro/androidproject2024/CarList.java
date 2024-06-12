@@ -28,6 +28,7 @@ public class CarList extends AppCompatActivity {
     private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
 
     String id;
+    String user_id;
     String companiesCarsUrl;
     String userAllCarsUrl;
     private RequestQueue queue;
@@ -42,6 +43,7 @@ public class CarList extends AppCompatActivity {
         recycler = findViewById(R.id.car_recycler);
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
+        user_id = intent.getStringExtra("user_id");
         companiesCarsUrl = BASE_URL_COMPANY + id;
         userAllCarsUrl = USER_ALL_CARS_URL;
 

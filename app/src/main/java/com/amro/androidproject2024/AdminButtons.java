@@ -2,7 +2,6 @@ package com.amro.androidproject2024;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.sax.StartElementListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class test_bootunssss extends AppCompatActivity {
+public class AdminButtons extends AppCompatActivity {
     private Button button_admin_show_customer;
 
     private Button button_admin_show_company;
@@ -50,7 +49,7 @@ public class test_bootunssss extends AppCompatActivity {
         button_admin_show_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(test_bootunssss.this, Admin_customer_mange_activity.class);
+            Intent intent = new Intent(AdminButtons.this, Admin_customer_mange_activity.class);
             intent.putExtra("user_id", userId);
             intent.putExtra("user_name", userName);
             intent.putExtra("admin_id", userRole);
@@ -61,7 +60,7 @@ public class test_bootunssss extends AppCompatActivity {
         button_admin_show_company.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           Intent intent = new Intent(test_bootunssss.this, Admin_Company_Mange_Activity.class);
+           Intent intent = new Intent(AdminButtons.this, Admin_Company_Mange_Activity.class);
            startActivity(intent);
             }
         });
@@ -69,7 +68,7 @@ public class test_bootunssss extends AppCompatActivity {
         button_add_admin_mitri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           Intent intent = new Intent(test_bootunssss.this, add_admin_activity.class);
+           Intent intent = new Intent(AdminButtons.this, add_admin_activity.class);
            startActivity(intent);
             }
         });
@@ -84,7 +83,7 @@ public class test_bootunssss extends AppCompatActivity {
         botton_logout_mitri_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(test_bootunssss.this, MainActivity.class);
+                Intent intent = new Intent(AdminButtons.this, MainActivity.class);
                 startActivity(intent);
             }
         });

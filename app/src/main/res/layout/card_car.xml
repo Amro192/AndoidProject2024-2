@@ -3,72 +3,107 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_views"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_margin="20dp"
-    card_view:cardElevation="2dp"
-    card_view:cardCornerRadius="4dp">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="18dp"
+    android:orientation="vertical"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="2dp">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
-
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imageCar"
-            android:layout_width="217dp"
-            android:layout_height="101dp"
-            android:layout_weight="1.0"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:contentDescription="CarImage"
             android:scaleType="centerCrop" />
 
-        <TextView
-            android:id="@+id/txtMake"
-            android:layout_width="109dp"
-            android:layout_height="50dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="67dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="8dp">
 
-        <TextView
-            android:id="@+id/txtModel"
-            android:layout_width="110dp"
-            android:layout_height="49dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="43dp"
-            android:layout_toEndOf="@+id/txtMake" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtYear"
-            android:layout_width="78dp"
-            android:layout_height="53dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="35dp"
-            android:layout_toEndOf="@+id/txtModel" />
+                <TextView
+                    android:id="@+id/carModel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_2020_bugatti_chiron"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtPrice"
-            android:layout_width="99dp"
-            android:layout_height="33dp"
-            android:layout_below="@+id/txtCompanyName"
-            android:layout_marginStart="21dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="28dp"
-            android:layout_toEndOf="@+id/imageCar" />
+                <TextView
+                    android:id="@+id/carMake"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bugatti"
+                    android:textSize="17sp" />
 
-        <TextView
-            android:id="@+id/txtCompanyName"
-            android:layout_width="137dp"
-            android:layout_height="32dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginBottom="4dp"
-            android:layout_toEndOf="@+id/imageCar" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-    </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/price"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/carPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:text="10000$"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/year"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/carYear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:gravity="center"
+                android:text="@string/_2024_11_1"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/reserve_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/reserve" />
+    </LinearLayout>
+
+
 </androidx.cardview.widget.CardView>
+

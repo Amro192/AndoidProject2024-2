@@ -38,15 +38,15 @@ public class Car_Rcycler_Adapter extends RecyclerView.Adapter<Car_Rcycler_Adapte
         // Use Glide to load image
         Glide.with(context).load(car.getImage()).into(imageView);
 
-        TextView txtMake = cardView.findViewById(R.id.txtMake);
+        TextView txtMake = cardView.findViewById(R.id.carMake);
         txtMake.setText(car.getMake());
-        TextView txtModel = cardView.findViewById(R.id.txtModel);
+        TextView txtModel = cardView.findViewById(R.id.carModel);
         txtModel.setText(car.getModel());
-        TextView txtYear = cardView.findViewById(R.id.txtYear);
+        TextView txtYear = cardView.findViewById(R.id.carYear);
         txtYear.setText(car.getYear());
-        TextView txtPrice = cardView.findViewById(R.id.txtPrice);
+        TextView txtPrice = cardView.findViewById(R.id.carPrice);
         txtPrice.setText(car.getPrice());
-        TextView txtCompany = cardView.findViewById(R.id.txtCompanyName);
+        TextView txtCompany = cardView.findViewById(R.id.companyName_edt_signAsCompany);
         txtCompany.setText(car.getCompanyName());
 
         cardView.setOnClickListener(v -> {

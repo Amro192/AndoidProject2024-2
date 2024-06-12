@@ -8,11 +8,12 @@ public class Car_B {
     private String companyName;
     private String image;
 
-    public Car_B(String make, String model, String year, String price, String image, String companyID) {
+    public Car_B(String make, String model, String year, String price, String image, String companyName) {
         this.make = make;
         this.model = model;
         this.year = year;
         this.price = price;
+        this.image = image;
         this.companyName = companyName;
 
     }

@@ -35,9 +35,9 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
 
     private ListView listView_Customer_admin_mit;
     private Button btn_delete_customers_admin;
-    private ArrayAdapter<CustomerClassm> adapter;
-    private ArrayList<CustomerClassm> customerList;
-    private CustomerClassm selectedCustomer;
+    private ArrayAdapter<CustomerClass> adapter;
+    private ArrayList<CustomerClass> customerList;
+    private CustomerClass selectedCustomer;
     private Button buttom_back_admin_in_customer_mange;
 
     private int userId;
@@ -79,7 +79,7 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
         buttom_back_admin_in_customer_mange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_customer_mange_activity.this, test_bootunssss.class);
+                Intent intent = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
                 startActivity(intent);
             }
         });
@@ -111,7 +111,7 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
                                 String phone = jsonObject.getString("Phone");
                                 Log.e("Tag", "RESPONSE: " + rentalID + " " + name + " " + email + " " + phone);
 
-                                CustomerClassm customer = new CustomerClassm(userID, rentalID, name, email, phone);
+                                CustomerClass customer = new CustomerClass(userID, rentalID, name, email, phone);
                                 customerList.add(customer);
                             }
                             adapter = new ArrayAdapter<>(
@@ -134,7 +134,7 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
         queue.add(jsonArrayRequest);
     }
 
-    private void deleteCustomer(CustomerClassm customer) {
+    private void deleteCustomer(CustomerClass customer) {
         // Remove the customer from the list and notify the adapter
         customerList.remove(customer);
         adapter.notifyDataSetChanged();

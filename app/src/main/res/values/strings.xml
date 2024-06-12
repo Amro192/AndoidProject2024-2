@@ -170,7 +170,6 @@
     <string name="back_btn_company_mange_admin_mit">Back</string>
 
 
-
     <string name="todo">TODO</string>
     <string name="continue_str">CONNECT</string>
     <string name="signIn_text">Hello There,\nWelcome Back</string>
@@ -284,4 +283,11 @@
     <string name="all_reservations">All Reservations</string>
     <string name="admin">Admin</string>
     <string name="fill_new_admin_info_below">Fill new admin info below</string>
+    <string name="price">Price:</string>
+    <string name="_2020_bugatti_chiron">2020 Bugatti Chiron</string>
+    <string name="bugatti">Bugatti</string>
+    <string name="_2024_11_1">2024/11/1</string>
+    <string name="reservation_date">Reservation Date:</string>
+    <string name="year">Year:</string>
+    <string name="reserve">Reserve</string>
 </resources>
