@@ -78,7 +78,7 @@ public class Reserve_List extends AppCompatActivity {
                         }
 
                     } catch (Exception ignored) {
-
+                    //handel
                     }
 
 

@@ -25,14 +25,12 @@ public class CarList extends AppCompatActivity {
     private RecyclerView recycler;
     private static final String BASE_URL_COMPANY = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
     private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
-    private static final String RENTAL_ALL_RESERVES_URL = "http://10.0.2.2:80/androidPr/get_reserv.php?RentalID=";
     String id;
     String user_id;
     String companiesCarsUrl;
     String userAllCarsUrl;
     private RequestQueue queue;
-    String rentalReservesUrl;
-    String rental_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
