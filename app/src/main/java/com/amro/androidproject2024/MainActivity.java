@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         Setup_control();
         setupSharedPrefs();
         checkPrefs();
+          //mitri12321@gmail.com  mitri2003
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,13 +116,14 @@ public class MainActivity extends AppCompatActivity {
                                 String role = jsonResponse.getString("role");
                                 String user_id = jsonResponse.getString("user_id");
                                 String name = jsonResponse.getString("Name");
+                                String email_user = jsonResponse.getString("email_user");
 
 
                                 // Handle different roles
                                 switch (role) {
                                     case "admin":
-                                        Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole + " User ID: " + user_id, Toast.LENGTH_SHORT).show();
-                                        Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name);
+                                        Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole + " User ID: " + user_id + " Email: " + email + " Name: " + name, Toast.LENGTH_SHORT).show();
+                                        Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name+ " Email: " + email_user);
                                         Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole, Toast.LENGTH_SHORT).show();
 
                                         Log.d("Tag", "Admin ID: " + idRole);
@@ -131,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                                         adminIntent.putExtra("user_id", user_id);
                                         adminIntent.putExtra("user_name", name);
                                         adminIntent.putExtra("admin_id", idRole);
+                                        adminIntent.putExtra("email", email_user);
                                         startActivity(adminIntent);
 
                                         break;

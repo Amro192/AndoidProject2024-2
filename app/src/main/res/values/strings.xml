@@ -284,4 +284,9 @@
     <string name="all_reservations">All Reservations</string>
     <string name="admin">Admin</string>
     <string name="fill_new_admin_info_below">Fill new admin info below</string>
+    <string name="show_customer_app_btn_admin_page_mit">Show Customer App</string>
+    <string name="show_company_app_admin_mit_page_btn">Show Company App</string>
+    <string name="add_admin_admin_mit_btn_page">Add Admin</string>
+    <string name="eidt_profile_btn_page_admin_mit">Eidt Profile</string>
+    <string name="log_out_btn_profile_admin_mit_page">log out</string>
 </resources>

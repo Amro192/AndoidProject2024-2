@@ -2,6 +2,7 @@ package com.amro.androidproject2024;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -22,6 +23,10 @@ public class profile_admin_activity extends AppCompatActivity {
     private  int userId;
     private String userName;
 
+    private  String email_user;
+
+    private int userRole;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +41,19 @@ public class profile_admin_activity extends AppCompatActivity {
         if (intent != null) {
             userId = intent.getIntExtra("user_id", -1);
             userName = intent.getStringExtra("user_name");
+            email_user = intent.getStringExtra("user_email");
+            userRole = intent.getIntExtra("admin_id", -1);
             setupViews();
+            name_admin_textView.setText(userName);
+            email_admin_textView.setText(email_user);
         }
+
+        btn_edit_profile_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 

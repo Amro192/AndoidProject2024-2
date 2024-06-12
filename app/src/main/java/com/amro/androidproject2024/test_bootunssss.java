@@ -22,10 +22,13 @@ public class test_bootunssss extends AppCompatActivity {
 
     private int userId;
     private String userName;
+    private String email_user;
     private int userRole;
     private TextView text_view_admin_show_name;
 
     private Button botton_logout_mitri_admin;
+
+    private Button button_edit_admin_profile_mit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +46,8 @@ public class test_bootunssss extends AppCompatActivity {
             userId = intent.getIntExtra("user_id", -1);
            userName = intent.getStringExtra("user_name");
            userRole = intent.getIntExtra("admin_id", -1);
-            text_view_admin_show_name.setText("Wlecome "+userName);
+            email_user = intent.getStringExtra("email_user");
+            text_view_admin_show_name.setText("welcome "+userName);
 
         }
         button_admin_show_customer.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +88,18 @@ public class test_bootunssss extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        button_edit_admin_profile_mit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(test_bootunssss.this, profile_admin_activity.class);
+                intent.putExtra("user_id", userId);
+                intent.putExtra("user_name", userName);
+                intent.putExtra("admin_id", userRole);
+                intent.putExtra("email_user", email_user);
+                startActivity(intent);
+            }
+        });
     }
 
     public void setupviews() {
@@ -92,6 +108,7 @@ public class test_bootunssss extends AppCompatActivity {
         button_add_admin_mitri = findViewById(R.id.button_add_admin_mitri);
         text_view_admin_show_name = findViewById(R.id.text_view_admin_show_name);
         botton_logout_mitri_admin = findViewById(R.id.botton_logout_mitri_admin);
+        button_edit_admin_profile_mit = findViewById(R.id.button_edit_admin_profile_mit);
 
     }
 }

@@ -24,7 +24,7 @@
         android:layout_marginBottom="30dp"
         android:backgroundTint="#356DE3"
         android:gravity="center"
-        android:text="Show Customer App" />
+        android:text="@string/show_customer_app_btn_admin_page_mit" />
 
     <Button
         android:id="@+id/button_admin_show_company"
@@ -33,7 +33,7 @@
         android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="Show Company App" />
+        android:text="@string/show_company_app_admin_mit_page_btn" />
 
     <Button
         android:id="@+id/button_add_admin_mitri"
@@ -42,7 +42,17 @@
         android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="        Add Admin        " />
+        android:text="@string/add_admin_admin_mit_btn_page" />
+
+
+    <Button
+        android:id="@+id/button_edit_admin_profile_mit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#356DE3"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:text="@string/eidt_profile_btn_page_admin_mit" />
 
     <Button
         android:id="@+id/botton_logout_mitri_admin"
@@ -51,7 +61,7 @@
         android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="           log out           " />
+        android:text="@string/log_out_btn_profile_admin_mit_page" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
