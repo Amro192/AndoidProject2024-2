@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                                     case "company":
                                         Toast.makeText(MainActivity.this, "Logged in as Company. Company ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Company ID: " + idRole);
-                                        Intent intent2 = new Intent(MainActivity.this, CarListForCompany.class);
+                                        Intent intent2 = new Intent(MainActivity.this, CompanyButtons.class);
                                         intent2.putExtra("name", name);
                                         intent2.putExtra("id", idRole);
                                         startActivity(intent2);

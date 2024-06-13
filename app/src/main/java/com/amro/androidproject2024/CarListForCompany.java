@@ -25,8 +25,8 @@ public class CarListForCompany extends AppCompatActivity {
     private RecyclerView recycler;
     private static final String BASE_URL_COMPANY = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
     private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
-    String id;
-    String user_id;
+    String CompanyId;
+    String flage;
     String companiesCarsUrl;
     String userAllCarsUrl;
     private RequestQueue queue;
@@ -40,9 +40,9 @@ public class CarListForCompany extends AppCompatActivity {
 
         recycler = findViewById(R.id.car_recycler);
         Intent intent = getIntent();
-        id = intent.getStringExtra("id");
-        user_id = intent.getStringExtra("user_id");
-        companiesCarsUrl = BASE_URL_COMPANY + id;
+        CompanyId = intent.getStringExtra("customerID");
+        flage = intent.getStringExtra("flage");
+        companiesCarsUrl = BASE_URL_COMPANY + CompanyId;
         userAllCarsUrl = USER_ALL_CARS_URL;
 
         recycler.setLayoutManager(new LinearLayoutManager(this));
@@ -51,72 +51,80 @@ public class CarListForCompany extends AppCompatActivity {
 
     private void loadItems() {
         cars.clear();
+        if(flage.equals("YES")) {
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, companiesCarsUrl,
+                    response -> {
+                        try {
+                            cars.clear();
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i < array.length(); i++) {
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, companiesCarsUrl,
-                response -> {
-                    try {
-
-                        JSONArray array = new JSONArray(response);
-                        for (int i = 0; i < array.length(); i++) {
-
-                            JSONObject object = array.getJSONObject(i);
-
-
-                            String make = object.getString("Make");
-                            String model = object.getString("Model");
-                            String year = object.getString("Year");
-                            String price = object.getString("RentPricePerDay");
-                            String image = object.getString("Image");
-                            String companyID = object.getString("CompanyID");
+                                JSONObject object = array.getJSONObject(i);
 
 
-                            Car car = new Car(make, model, year, price, image, companyID);
-                            cars.add(car);
+                                String make = object.getString("Make");
+                                String model = object.getString("Model");
+                                String year = object.getString("Year");
+                                String price = object.getString("RentPricePerDay");
+                                String image = object.getString("Image");
+                                String companysID = object.getString("CompanyID");
+
+
+                                Car car = new Car(make,model,year,price,image,companysID);
+                                Toast.makeText(CarListForCompany.this, cars.size()+"", Toast.LENGTH_LONG).show();
+                                cars.add(car);
+                            }
+
+                        } catch (Exception ignored) {
+
+                            Toast.makeText(CarListForCompany.this,  ignored.getMessage(), Toast.LENGTH_LONG).show();
+
                         }
 
-                    } catch (Exception ignored) {
+                        CarRecyclerAdapterForCompany adapterr = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
+                        recycler.setAdapter(adapterr);
+                        Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                    }
+                    }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
+            queue.add(stringRequest);
+       }
+        else if(flage.equals("NO")) {
 
-                    CarRecyclerAdapterForCompany adapter = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
-                    recycler.setAdapter(adapter);
-                    Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
+            StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,
+                    response -> {
+                        try {
+                            cars.clear();
+                            JSONArray array = new JSONArray(response);
+                            for (int i = 0; i < array.length(); i++) {
 
-                }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
-        StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,
-                response -> {
-                    try {
-
-                        JSONArray array = new JSONArray(response);
-                        for (int i = 0; i < array.length(); i++) {
-
-                            JSONObject object = array.getJSONObject(i);
-
-
-                            String make = object.getString("Make");
-                            String model = object.getString("Model");
-                            String year = object.getString("Year");
-                            String price = object.getString("RentPricePerDay");
-                            String image = object.getString("Image");
-                            String CompanyID = object.getString("CompanyID");
+                                JSONObject object = array.getJSONObject(i);
 
 
-                            Car car = new Car(make, model, year, price, image, CompanyID);
-                            cars.add(car);
+                                String make = object.getString("Make");
+                                String model = object.getString("Model");
+                                String year = object.getString("Year");
+                                String price = object.getString("RentPricePerDay");
+                                String image = object.getString("Image");
+                                String CompanysID = object.getString("CompanyID");
+
+
+                                Car car = new Car(make, model, year, price, image, CompanysID);
+                                cars.add(car);
+                            }
+
+                        } catch (Exception ignored) {
+
                         }
 
-                    } catch (Exception ignored) {
+                        CarRecyclerAdapterForCompany adapter = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
+                        recycler.setAdapter(adapter);
+                        Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                    }
+                    }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
+            queue.add(allCarsStringRequest);
+        }
 
-                    CarRecyclerAdapterForCompany adapter = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
-                    recycler.setAdapter(adapter);
-                    Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
-
-        queue.add(stringRequest);
-        queue.add(allCarsStringRequest);
 
     }
 }

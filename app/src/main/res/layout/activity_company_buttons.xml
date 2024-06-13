@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="100dp"
+    android:orientation="vertical"
+    tools:context=".CompanyButtons">
+
+    <TextView
+        android:id="@+id/welcomeCompanys"
+        style="@style/text_style"
+        android:text="" />
+
+
+    <Button
+        android:id="@+id/showAllCars_Company"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:gravity="center"
+        android:text="Show All Cars" />
+
+
+
+    <Button
+        android:id="@+id/showMyCompanyCars"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:text="Show Our Cars" />
+
+    <Button
+        android:id="@+id/logOut_Company"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:text="Log out" />
+
+</LinearLayout>

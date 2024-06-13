@@ -26,7 +26,7 @@ public class CarRecyclerAdapterForCompany extends RecyclerView.Adapter<CarRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_car, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_company, parent, false);
         return new ViewHolder(v);
     }
 
@@ -34,20 +34,18 @@ public class CarRecyclerAdapterForCompany extends RecyclerView.Adapter<CarRecycl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Car car = cars.get(position);
         CardView cardView = holder.cardView;
-        ImageView imageView = cardView.findViewById(R.id.imageCar);
+        ImageView imageView = cardView.findViewById(R.id.imageCar_Company);
         // Use Glide to load image
         Glide.with(context).load(car.getImage()).into(imageView);
 
-        TextView txtMake = cardView.findViewById(R.id.carMake);
+        TextView txtMake = cardView.findViewById(R.id.carMake_Company);
         txtMake.setText(car.getMake());
-        TextView txtModel = cardView.findViewById(R.id.carModel);
+        TextView txtModel = cardView.findViewById(R.id.carModel_Company);
         txtModel.setText(car.getModel());
-        TextView txtYear = cardView.findViewById(R.id.carYear);
+        TextView txtYear = cardView.findViewById(R.id.carYear_Company);
         txtYear.setText(car.getYear());
-        TextView txtPrice = cardView.findViewById(R.id.carPrice);
+        TextView txtPrice = cardView.findViewById(R.id.carPrice_Company);
         txtPrice.setText(car.getPrice());
-        TextView txtCompany = cardView.findViewById(R.id.companyName_edt_signAsCompany);
-        txtCompany.setText(car.getCompanyName());
 
         cardView.setOnClickListener(v -> {
             // Handle click event
