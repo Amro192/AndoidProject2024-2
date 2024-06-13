@@ -5,20 +5,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -29,165 +23,137 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddAdminActivity extends AppCompatActivity {
-       private EditText fullNameForAdmin_add_Admin_mit;
-       private EditText emailForAdmin_add_Admin_mit;
-       private EditText passwordForAdmin_add_Admin_mit;
 
-       private EditText confirmPassword_for_admin_add_mit;
+    private static final String TAG = AddAdminActivity.class.getName();
 
-       private Button Add_admin_button_mit;
+    private EditText fullnameEditText;
+    private EditText emailEditText;
+    private EditText passwordEditText;
+    private EditText confirmPasswordEditText;
 
-       private Button buttom_back_admin_in_add_admin_mit;
     private String userName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_admin_activty);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.add_admin_layout), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
         setUpValues();
+
         Intent intent = getIntent();
         if (intent != null) {
             userName = intent.getStringExtra("user_name");
         }
-        Add_admin_button_mit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(validateInput()){
-                    add_Admin();
-                    Toast.makeText(AddAdminActivity.this, "Admin Added Successful", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
-        buttom_back_admin_in_add_admin_mit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AddAdminActivity.this, AdminButtons.class);
-                intent.putExtra("user_name", userName);
-                Intent intent2 = new Intent(AddAdminActivity.this, AdminButtons.class);
-                startActivity(intent2);
-
-            }
-        });
     }
 
-    public void add_Admin() {
+    public void addAdmin() {
         String url = "http://10.0.2.2:80/androidPr/AddAdmin.php";
-        RequestQueue queue = Volley.newRequestQueue(AddAdminActivity.this);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(newRequestHandler(url));
+    }
 
-        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.e("Tag", "RESPONSE: " + response);  // Log the raw response
+    @NonNull
+    private StringRequest newRequestHandler(String url) {
+        return new StringRequest(
+                Request.Method.POST,
+                url,
+                response -> {
+                    Log.e(TAG, "RESPONSE: " + response);  // Log the raw response
 
-                if (response == null || response.trim().isEmpty()) {
-                    Log.e("Tag", "Empty response from the server");
-                    Toast.makeText(AddAdminActivity.this, "Server returned an empty response.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    if (response == null || response.trim().isEmpty()) {
+                        Log.e(TAG, "Empty response from the server");
+                        Toast.makeText(this, "Server returned an empty response.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                try {
-                    JSONObject jsonResponse = new JSONObject(response);
-                    String message = jsonResponse.getString("message");
-                    // Handle the response message
-                    Toast.makeText(AddAdminActivity.this, message, Toast.LENGTH_SHORT).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    // Handle JSON parsing error
-                    Toast.makeText(AddAdminActivity.this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
-                    Log.e("Tag", "Invalid JSON response: " + response);
-                }
-            }
-
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(AddAdminActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        }) {
+                    handleResponseMessage(response);
+                }, error -> Toast.makeText(this, error.toString(), Toast.LENGTH_SHORT).show()) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("email", emailForAdmin_add_Admin_mit.getText().toString().trim());
-                params.put("password", passwordForAdmin_add_Admin_mit.getText().toString().trim());
-                params.put("name", fullNameForAdmin_add_Admin_mit.getText().toString().trim());
+                params.put("email", emailEditText.getText().toString().trim());
+                params.put("password", passwordEditText.getText().toString().trim());
+                params.put("name", fullnameEditText.getText().toString().trim());
                 return params;
             }
         };
-
-        queue.add(request);
     }
 
+    private void handleResponseMessage(String response) {
+        try {
+            // TODO:Handle the response message
+            String message = new JSONObject(response).getString("message");
+            Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            // TODO: Handle JSON parsing error
+            Log.e(TAG, "Invalid JSON response: " + response);
+            Toast.makeText(this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-
-    public void setUpValues(){
-        fullNameForAdmin_add_Admin_mit = findViewById(R.id.fullNameForAdmin_add_Admin_mit);
-        emailForAdmin_add_Admin_mit = findViewById(R.id.emailForAdmin_add_Admin_mit);
-        passwordForAdmin_add_Admin_mit = findViewById(R.id.passwordForAdmin_add_Admin_mit);
-        confirmPassword_for_admin_add_mit = findViewById(R.id.confirmPassword_for_admin_add_mit);
-        Add_admin_button_mit = findViewById(R.id.Add_admin_button_mit);
-        buttom_back_admin_in_add_admin_mit = findViewById(R.id.buttom_back_admin_in_add_admin_mit);
+    public void setUpValues() {
+        fullnameEditText = findViewById(R.id.fullNameForAdmin_add_Admin_mit);
+        emailEditText = findViewById(R.id.emailForAdmin_add_Admin_mit);
+        passwordEditText = findViewById(R.id.passwordForAdmin_add_Admin_mit);
+        confirmPasswordEditText = findViewById(R.id.confirmPassword_for_admin_add_mit);
     }
 
     private boolean isFullNameValid() {
-        String fullNameAdmin = fullNameForAdmin_add_Admin_mit.getText().toString().trim();
+        String fullNameAdmin = fullnameEditText.getText().toString().trim();
         if (fullNameAdmin.isEmpty()) {
-            fullNameForAdmin_add_Admin_mit.setError("Full Name is required");
+            fullnameEditText.setError("Full Name is required");
             return false;
-        }else if (Character.isDigit(fullNameAdmin.charAt(0))) {  // check if the full name start with number
-            fullNameForAdmin_add_Admin_mit.setError("Company name cannot start with a number");
-            fullNameForAdmin_add_Admin_mit.requestFocus();
+        } else if (Character.isDigit(fullNameAdmin.charAt(0))) {  // check if the full name start with number
+            fullnameEditText.setError("Company name cannot start with a number");
+            fullnameEditText.requestFocus();
             return false;
         }
         return true;
     }
 
     private boolean isEmailValid() {
-        String email = emailForAdmin_add_Admin_mit.getText().toString();
+        String email = emailEditText.getText().toString();
         if (email.isEmpty()) {
-            emailForAdmin_add_Admin_mit.setError("Email is required");
+            emailEditText.setError("Email is required");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            emailForAdmin_add_Admin_mit.setError("Invalid Email Address");
+            emailEditText.setError("Invalid Email Address");
             return false;
         }
         return true;
     }
+
     private boolean isPasswordValid() {
-        String password = passwordForAdmin_add_Admin_mit.getText().toString();
-        if ((password.isEmpty())) {
-            passwordForAdmin_add_Admin_mit.setError("Password is required");
+        String password = passwordEditText.getText().toString();
+        if (password.isEmpty()) {
+            passwordEditText.setError("Password is required");
             return false;
         }
-        if(password.length() < 6){
-            passwordForAdmin_add_Admin_mit.setError("Password must be at least 6 characters");
+        if (password.length() < 6) {
+            passwordEditText.setError("Password must be at least 6 characters");
             return false;
         }
         return true;
     }
 
     private boolean isConfirmPasswordValid() {
-        String ConfirmPassword = confirmPassword_for_admin_add_mit.getText().toString();
-        if (ConfirmPassword.isEmpty()) {
-            confirmPassword_for_admin_add_mit.setError("Confirm Password is required");
+        String confirmPassword = confirmPasswordEditText.getText().toString();
+        if (confirmPassword.isEmpty()) {
+            confirmPasswordEditText.setError("Confirm Password is required");
             return false;
-        }if(ConfirmPassword.length() < 6){
-            confirmPassword_for_admin_add_mit.setError("Password must be at least 6 characters");
+        }
+        if (confirmPassword.length() < 6) {
+            confirmPasswordEditText.setError("Password must be at least 6 characters");
             return false;
         }
         return true;
     }
 
     private boolean doPasswordsMatch() {
-        String password = passwordForAdmin_add_Admin_mit.getText().toString();
-        String confirmPassword = confirmPassword_for_admin_add_mit.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String confirmPassword = confirmPasswordEditText.getText().toString();
         if (!password.equals(confirmPassword)) {
-            confirmPassword_for_admin_add_mit.setError("Passwords do not match");
+            confirmPasswordEditText.setError("Passwords do not match");
             return false;
         }
         return true;
@@ -198,7 +164,20 @@ public class AddAdminActivity extends AppCompatActivity {
         if (!isPasswordValid()) return false;
         if (!isConfirmPasswordValid()) return false;
         if (!doPasswordsMatch()) return false;
-        if (!isFullNameValid()) return false;
-        return true;
+        return isFullNameValid();
+    }
+
+    public void onClickAddAdminButton(View ignored) {
+        if (validateInput()) {
+            addAdmin();
+            Toast.makeText(this, "Admin added successfully", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void onClickBackButton(View ignored) {
+        startActivity(
+                new Intent(this, AdminButtons.class)
+                        .putExtra("user_name", userName)
+        );
     }
 }

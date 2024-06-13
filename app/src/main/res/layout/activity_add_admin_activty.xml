@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/add_admin_layout"
     android:layout_width="match_parent"
@@ -76,6 +75,7 @@
         android:id="@+id/Add_admin_button_mit"
         style="@style/login_button"
         android:text="@string/add_admin_btn_mit_page"
+        android:onClick="onClickAddAdminButton"
         tools:ignore="VisualLintButtonSize" />
 
     <Button
@@ -84,8 +84,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:backgroundTint="#356DE3"
+        android:onClick="onClickBackButton"
         android:text="Back" />
-
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>
