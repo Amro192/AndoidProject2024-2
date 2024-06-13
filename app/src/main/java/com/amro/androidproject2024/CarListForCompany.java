@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,7 +33,6 @@ public class CarListForCompany extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_car_list);
         queue = Volley.newRequestQueue(this);
 
@@ -83,6 +81,8 @@ public class CarListForCompany extends AppCompatActivity {
                     Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
                 }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
+
+
         StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,
                 response -> {
                     try {
@@ -92,14 +92,12 @@ public class CarListForCompany extends AppCompatActivity {
 
                             JSONObject object = array.getJSONObject(i);
 
-
                             String make = object.getString("Make");
                             String model = object.getString("Model");
                             String year = object.getString("Year");
                             String price = object.getString("RentPricePerDay");
                             String image = object.getString("Image");
                             String CompanyID = object.getString("CompanyID");
-
 
                             Car car = new Car(make, model, year, price, image, CompanyID);
                             cars.add(car);

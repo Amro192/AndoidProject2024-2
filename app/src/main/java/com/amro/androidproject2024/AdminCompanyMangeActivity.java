@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Admin_Company_Mange_Activity extends AppCompatActivity {
+public class AdminCompanyMangeActivity extends AppCompatActivity {
 
    private ListView Company_Mange_Activity_admin_mit;
 
@@ -73,20 +73,20 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
 
         Company_Mange_Activity_admin_mit.setOnItemClickListener((parent, view, position, id) -> {
             selectedcompany = companyList.get(position);
-            Toast.makeText(Admin_Company_Mange_Activity.this, "Selected: " + selectedcompany.getCompanyName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminCompanyMangeActivity.this, "Selected: " + selectedcompany.getCompanyName(), Toast.LENGTH_SHORT).show();
         });
 
         btn_delete_company_mit_admin.setOnClickListener(v -> {
             if (selectedcompany != null) {
                 deleteCompany(selectedcompany);
             } else {
-                Toast.makeText(Admin_Company_Mange_Activity.this, "No customer selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminCompanyMangeActivity.this, "No customer selected", Toast.LENGTH_SHORT).show();
             }
         });
         button_back_admin_in_Company_mange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_Company_Mange_Activity.this, AdminButtons.class);
+                Intent intent = new Intent(AdminCompanyMangeActivity.this, AdminButtons.class);
                 intent.putExtra("user_name", userName);
                 startActivity(intent);
             }
@@ -123,7 +123,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
                                 companyList.add(company);
                             }
                              adapter = new ArrayAdapter<>(
-                                    Admin_Company_Mange_Activity.this,
+                                    AdminCompanyMangeActivity.this,
                                     android.R.layout.simple_list_item_1,
                                     companyList);
                             Company_Mange_Activity_admin_mit.setAdapter(adapter);
@@ -162,14 +162,14 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
                             if (jsonResponse.has("error")) {
                                 String errorMessage = jsonResponse.getString("error");
                                 // Do something with the error message
-                                Toast.makeText(Admin_Company_Mange_Activity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminCompanyMangeActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
 
                                 // Handle error
                             } else {
                                 // Handle success
                                 String message = jsonResponse.getString("message");
                                 // Do something with the success message
-                                Toast.makeText(Admin_Company_Mange_Activity.this, message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminCompanyMangeActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();

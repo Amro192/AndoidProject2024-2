@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Admin_customer_mange_activity">
+    tools:context=".AdminCustomerMangeActivity">
 
     <TextView
         android:text="@string/our_app_customers_admin_mit_12344"

@@ -26,7 +26,7 @@ public class CarRecyclerAdapterForCustomer extends RecyclerView.Adapter<CarRecyc
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_car, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_reserv, parent, false);
         return new ViewHolder(v);
     }
 
@@ -59,6 +59,7 @@ public class CarRecyclerAdapterForCustomer extends RecyclerView.Adapter<CarRecyc
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final CardView cardView;
+
         public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;

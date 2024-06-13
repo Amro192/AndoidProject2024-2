@@ -12,9 +12,8 @@ public class CustomerButtons extends AppCompatActivity {
 
     private Button showAllReservationsButton;
 
-    private int userId;
+    private int customerID;
     private String userName;
-    private int userRole;
     private TextView text_view_admin_show_name;
     private Button logoutButton;
 
@@ -27,18 +26,18 @@ public class CustomerButtons extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
             userName = intent.getStringExtra("name");
+            customerID = intent.getIntExtra("customerID", 0);
             text_view_admin_show_name.setText(String.format("%s%s", getString(R.string.welcome_back), userName));
         }
 
         showAllCarsButton.setOnClickListener(v -> {
             Intent customerIntent = new Intent(CustomerButtons.this, CarListForCustomer.class);
-            customerIntent.putExtra("userName", userName);
-            customerIntent.putExtra("customerID", userRole);
             startActivity(customerIntent);
         });
 
         showAllReservationsButton.setOnClickListener(v -> {
-            Intent intentReservations = new Intent(CustomerButtons.this, CarListForCompany.class);
+            Intent intentReservations = new Intent(CustomerButtons.this, ReserveList.class);
+            intentReservations.putExtra("customerID", customerID);
             startActivity(intentReservations);
         });
 

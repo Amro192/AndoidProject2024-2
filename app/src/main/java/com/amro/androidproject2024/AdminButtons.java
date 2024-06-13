@@ -48,7 +48,7 @@ public class AdminButtons extends AppCompatActivity {
         button_admin_show_customer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(AdminButtons.this, Admin_customer_mange_activity.class);
+            Intent intent = new Intent(AdminButtons.this, AdminCustomerMangeActivity.class);
             intent.putExtra("user_id", userId);
             intent.putExtra("user_name", userName);
             intent.putExtra("admin_id", userRole);
@@ -59,7 +59,7 @@ public class AdminButtons extends AppCompatActivity {
         button_admin_show_company.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           Intent intent = new Intent(AdminButtons.this, Admin_Company_Mange_Activity.class);
+           Intent intent = new Intent(AdminButtons.this, AdminCompanyMangeActivity.class);
                 intent.putExtra("user_id", userId);
                 intent.putExtra("user_name", userName);
                 intent.putExtra("admin_id", userRole);

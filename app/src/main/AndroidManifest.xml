@@ -27,7 +27,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Admin_Company_Mange_Activity"
+            android:name=".AdminCompanyMangeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -35,7 +35,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Admin_customer_mange_activity"
+            android:name=".AdminCustomerMangeActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity

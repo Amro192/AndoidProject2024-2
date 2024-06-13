@@ -25,13 +25,9 @@
         style="@style/style_for_edit_text" />
 
     <TextView
-        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="10dp"
         android:text="@string/password_login_page"
         android:textSize="20sp" />
 
@@ -74,8 +70,7 @@
         android:layout_marginTop="90dp"
         android:gravity="center"
         android:text="@string/or_sign_up_using_label_login_page"
-        android:textSize="16sp"
-        android:textStyle="bold|italic" />
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/signUpButton"
@@ -85,5 +80,5 @@
         android:backgroundTint="#FFFFFFFF"
         android:text="@string/sign_up_bt_login_page"
         android:textColor="#000000"
-        app:iconSize="18dp" />
+        app:iconSize="15dp" />
 </androidx.appcompat.widget.LinearLayoutCompat>

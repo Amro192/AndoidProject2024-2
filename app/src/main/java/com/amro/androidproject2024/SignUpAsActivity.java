@@ -2,7 +2,6 @@ package com.amro.androidproject2024;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -26,35 +25,27 @@ public class SignUpAsActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        set_valiess();
+        setUpViews();
 
-        loginbtn_sign_up_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpAsActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        loginbtn_sign_up_1.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUpAsActivity.this, MainActivity.class);
+            startActivity(intent);
         });
-        AsRenterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        AsRenterBtn.setOnClickListener(v -> {
             Intent intent = new Intent(SignUpAsActivity.this, SignUpAsRentalActivity.class);
             startActivity(intent);
-            }
         });
 
-        AsCompanyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(SignUpAsActivity.this, SignUpAsCompanyActivity.class);
-                startActivity(intent);
-            }
+        AsCompanyBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(SignUpAsActivity.this, SignUpAsCompanyActivity.class);
+            startActivity(intent);
         });
 
     }
-    public void set_valiess(){
-        loginbtn_sign_up_1=findViewById(R.id.loginbtn_sign_up_1);
-        AsRenterBtn=findViewById(R.id.AsRenterBtn);
-        AsCompanyBtn=findViewById(R.id.AsCompanyBtn);
+
+    public void setUpViews() {
+        loginbtn_sign_up_1 = findViewById(R.id.loginbtn_sign_up_1);
+        AsRenterBtn = findViewById(R.id.AsRenterBtn);
+        AsCompanyBtn = findViewById(R.id.AsCompanyBtn);
     }
 }

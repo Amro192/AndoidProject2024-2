@@ -2,12 +2,12 @@
     <string name="app_name">AndroidProject2024</string>
     <string name="login_label">login</string>
     <string name="email_label">Email</string>
-    <string name="enter_your_email_login_page">enter_your_email</string>
-    <string name="password_login_page">password</string>
-    <string name="enter_your_password_login_page">enter_your_password</string>
+    <string name="enter_your_email_login_page">Enter Email</string>
+    <string name="password_login_page">Password</string>
+    <string name="enter_your_password_login_page">Enter Password</string>
     <string name="login_bt_login_page">login</string>
-    <string name="or_sign_up_using_label_login_page">or_sign_up_using</string>
-    <string name="sign_up_bt_login_page">sign_up</string>
+    <string name="or_sign_up_using_label_login_page">Or Sign Up Using: </string>
+    <string name="sign_up_bt_login_page">Sign Up</string>
     <string name="remember_me_login">Remember me</string>
     <string name="already_have_an_account_text">Already have an account?</string>
     <string name="sign_up_Text_up">Sign Up</string>

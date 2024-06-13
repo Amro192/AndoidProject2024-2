@@ -1,10 +1,8 @@
 package com.amro.androidproject2024;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,19 +29,14 @@ public class CarListForCustomer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_car_list);
         queue = Volley.newRequestQueue(this);
-
         recycler = findViewById(R.id.car_recycler);
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("id");
-        String user_id = intent.getStringExtra("user_id");
         userAllCarsUrl = USER_ALL_CARS_URL;
-
         recycler.setLayoutManager(new LinearLayoutManager(this));
         loadItems();
     }
+
     private void loadItems() {
         cars.clear();
         StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,

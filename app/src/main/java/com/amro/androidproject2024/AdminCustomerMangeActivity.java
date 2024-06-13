@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Admin_customer_mange_activity extends AppCompatActivity {
+public class AdminCustomerMangeActivity extends AppCompatActivity {
 
     private ListView listView_Customer_admin_mit;
     private Button btn_delete_customers_admin;
@@ -65,31 +65,31 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
 
         listView_Customer_admin_mit.setOnItemClickListener((parent, view, position, id) -> {
             selectedCustomer = customerList.get(position);
-            Toast.makeText(Admin_customer_mange_activity.this, "Selected: " + selectedCustomer.getName(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(AdminCustomerMangeActivity.this, "Selected: " + selectedCustomer.getName(), Toast.LENGTH_SHORT).show();
         });
 
         btn_delete_customers_admin.setOnClickListener(v -> {
             if (selectedCustomer != null) {
                 deleteCustomer(selectedCustomer);
             } else {
-                Toast.makeText(Admin_customer_mange_activity.this, "No customer selected", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AdminCustomerMangeActivity.this, "No customer selected", Toast.LENGTH_SHORT).show();
             }
         });
         buttom_back_admin_in_customer_mange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+                Intent intent = new Intent(AdminCustomerMangeActivity.this, AdminButtons.class);
                 intent.putExtra("user_name", userName);
-                Intent intent3 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+                Intent intent3 = new Intent(AdminCustomerMangeActivity.this, AdminButtons.class);
                 startActivity(intent3);
             }
         });
         buttom_back_admin_in_customer_mange.setOnClickListener(v ->
 
         {
-            Intent intent1 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+            Intent intent1 = new Intent(AdminCustomerMangeActivity.this, AdminButtons.class);
             intent1.putExtra("user_name", userName);
-            Intent intent3 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+            Intent intent3 = new Intent(AdminCustomerMangeActivity.this, AdminButtons.class);
             startActivity(intent3);
         });
     }
@@ -122,7 +122,7 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
                             customerList.add(customer);
                         }
                         adapter = new ArrayAdapter<>(
-                                Admin_customer_mange_activity.this,
+                                AdminCustomerMangeActivity.this,
                                 android.R.layout.simple_list_item_1,
                                 customerList);
                         listView_Customer_admin_mit.setAdapter(adapter);
@@ -160,14 +160,14 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
                             if (jsonResponse.has("error")) {
                                 String errorMessage = jsonResponse.getString("error");
                                 // Do something with the error message
-                                Toast.makeText(Admin_customer_mange_activity.this, errorMessage, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminCustomerMangeActivity.this, errorMessage, Toast.LENGTH_SHORT).show();
 
                                 // Handle error
                             } else {
                                 // Handle success
                                 String message = jsonResponse.getString("message");
                                 // Do something with the success message
-                                Toast.makeText(Admin_customer_mange_activity.this, message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminCustomerMangeActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
