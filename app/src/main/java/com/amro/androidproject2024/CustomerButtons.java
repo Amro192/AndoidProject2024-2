@@ -2,15 +2,10 @@ package com.amro.androidproject2024;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class CustomerButtons extends AppCompatActivity {
     private Button showAllCarsButton;
@@ -27,26 +22,23 @@ public class CustomerButtons extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_buttons);
-        setupviews();
+        setUpViews();
 
         Intent intent = getIntent();
         if (intent != null) {
-            userId = intent.getIntExtra("user_id", -1);
             userName = intent.getStringExtra("name");
-            userRole = intent.getIntExtra("company_id", -1);
-            text_view_admin_show_name.setText("Welcome: " + userName);
-
+            text_view_admin_show_name.setText(String.format("%s%s", getString(R.string.welcome_back), userName));
         }
+
         showAllCarsButton.setOnClickListener(v -> {
-            Intent intent12 = new Intent(CustomerButtons.this, CarList.class);
-            intent12.putExtra("user_id", userId);
-            intent12.putExtra("user_name", userName);
-            intent12.putExtra("admin_id", userRole);
-            startActivity(intent12);
+            Intent customerIntent = new Intent(CustomerButtons.this, CarListForCustomer.class);
+            customerIntent.putExtra("userName", userName);
+            customerIntent.putExtra("customerID", userRole);
+            startActivity(customerIntent);
         });
 
         showAllReservationsButton.setOnClickListener(v -> {
-            Intent intentReservations = new Intent(CustomerButtons.this, CarList.class);
+            Intent intentReservations = new Intent(CustomerButtons.this, CarListForCompany.class);
             startActivity(intentReservations);
         });
 
@@ -56,7 +48,7 @@ public class CustomerButtons extends AppCompatActivity {
         });
     }
 
-    public void setupviews() {
+    public void setUpViews() {
         showAllCarsButton = findViewById(R.id.showAllCars);
         showAllReservationsButton = findViewById(R.id.showReservations);
         text_view_admin_show_name = findViewById(R.id.welcomeCustomer);

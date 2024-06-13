@@ -123,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
                                         Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole + " User ID: " + user_id, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Admin ID: " + idRole+ " User ID: " + user_id+ " Name: " + name);
                                         Toast.makeText(MainActivity.this, "Logged in as Admin. Admin ID: " + idRole, Toast.LENGTH_SHORT).show();
-
                                         Log.d("Tag", "Admin ID: " + idRole);
+
                                         // Redirect to admin activity
                                         // use the user id and admin id to do many things in admin page
                                         Intent adminIntent = new Intent(MainActivity.this, AdminButtons.class);
@@ -132,9 +132,8 @@ public class MainActivity extends AppCompatActivity {
                                         adminIntent.putExtra("user_name", name);
                                         adminIntent.putExtra("admin_id", idRole);
                                         startActivity(adminIntent);
-
-
                                         break;
+
                                     case "rental":
                                         Toast.makeText(MainActivity.this, "Logged in as Rental. Rental ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Intent rentalIntent = new Intent(MainActivity.this, CustomerButtons.class);
@@ -142,11 +141,11 @@ public class MainActivity extends AppCompatActivity {
                                         rentalIntent.putExtra("id", idRole);
                                         startActivity(rentalIntent);
                                         break;  //admin@example.com admin
+
                                     case "company":
                                         Toast.makeText(MainActivity.this, "Logged in as Company. Company ID: " + idRole, Toast.LENGTH_SHORT).show();
                                         Log.d("Tag", "Company ID: " + idRole);
-
-                                        Intent intent2 = new Intent(MainActivity.this, CarList.class);
+                                        Intent intent2 = new Intent(MainActivity.this, CarListForCompany.class);
                                         intent2.putExtra("name", name);
                                         intent2.putExtra("id", idRole);
                                         startActivity(intent2);

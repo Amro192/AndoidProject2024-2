@@ -14,23 +14,23 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class Reserve_Rcycler_Adapter extends RecyclerView.Adapter<Reserve_Rcycler_Adapter.ViewHolderr>{
+public class ReserveRecyclerAdapter extends RecyclerView.Adapter<ReserveRecyclerAdapter.ViewHolderr>{
 
     private final List<Reserve> reserveList;
     private final Context context; // Add context field
-    public Reserve_Rcycler_Adapter(Context context, List<Reserve> reserveList) {
+    public ReserveRecyclerAdapter(Context context, List<Reserve> reserveList) {
         this.context = context;
         this.reserveList = reserveList;
     }
     @NonNull
     @Override
-    public Reserve_Rcycler_Adapter.ViewHolderr onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ReserveRecyclerAdapter.ViewHolderr onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_reserv, parent, false);
-        return new Reserve_Rcycler_Adapter.ViewHolderr(v);
+        return new ReserveRecyclerAdapter.ViewHolderr(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Reserve_Rcycler_Adapter.ViewHolderr holder, int position) {
+    public void onBindViewHolder(@NonNull ReserveRecyclerAdapter.ViewHolderr holder, int position) {
         final Reserve res = reserveList.get(position);
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.imageCar_Reserve);

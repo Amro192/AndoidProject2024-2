@@ -28,7 +28,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class add_admin_activity extends AppCompatActivity {
+public class AddAdminActivity extends AppCompatActivity {
        private EditText fullNameForAdmin_add_Admin_mit;
        private EditText emailForAdmin_add_Admin_mit;
        private EditText passwordForAdmin_add_Admin_mit;
@@ -59,7 +59,7 @@ public class add_admin_activity extends AppCompatActivity {
             public void onClick(View v) {
                 if(validateInput()){
                     add_Admin();
-                    Toast.makeText(add_admin_activity.this, "Admin Added Successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdminActivity.this, "Admin Added Successful", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -67,9 +67,9 @@ public class add_admin_activity extends AppCompatActivity {
         buttom_back_admin_in_add_admin_mit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(add_admin_activity.this, AdminButtons.class);
+                Intent intent = new Intent(AddAdminActivity.this, AdminButtons.class);
                 intent.putExtra("user_name", userName);
-                Intent intent2 = new Intent(add_admin_activity.this, AdminButtons.class);
+                Intent intent2 = new Intent(AddAdminActivity.this, AdminButtons.class);
                 startActivity(intent2);
 
             }
@@ -78,7 +78,7 @@ public class add_admin_activity extends AppCompatActivity {
 
     public void add_Admin() {
         String url = "http://10.0.2.2:80/androidPr/AddAdmin.php";
-        RequestQueue queue = Volley.newRequestQueue(add_admin_activity.this);
+        RequestQueue queue = Volley.newRequestQueue(AddAdminActivity.this);
 
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -87,7 +87,7 @@ public class add_admin_activity extends AppCompatActivity {
 
                 if (response == null || response.trim().isEmpty()) {
                     Log.e("Tag", "Empty response from the server");
-                    Toast.makeText(add_admin_activity.this, "Server returned an empty response.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdminActivity.this, "Server returned an empty response.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -95,11 +95,11 @@ public class add_admin_activity extends AppCompatActivity {
                     JSONObject jsonResponse = new JSONObject(response);
                     String message = jsonResponse.getString("message");
                     // Handle the response message
-                    Toast.makeText(add_admin_activity.this, message, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdminActivity.this, message, Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
                     // Handle JSON parsing error
-                    Toast.makeText(add_admin_activity.this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddAdminActivity.this, "Error parsing JSON response", Toast.LENGTH_SHORT).show();
                     Log.e("Tag", "Invalid JSON response: " + response);
                 }
             }
@@ -107,7 +107,7 @@ public class add_admin_activity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(add_admin_activity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddAdminActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }) {
             @Override

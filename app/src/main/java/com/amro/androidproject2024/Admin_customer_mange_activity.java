@@ -23,7 +23,6 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -85,12 +84,20 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
                 startActivity(intent3);
             }
         });
+        buttom_back_admin_in_customer_mange.setOnClickListener(v ->
+
+        {
+            Intent intent1 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+            intent1.putExtra("user_name", userName);
+            Intent intent3 = new Intent(Admin_customer_mange_activity.this, AdminButtons.class);
+            startActivity(intent3);
+        });
     }
 
     private void setUpViews() {
         listView_Customer_admin_mit = findViewById(R.id.listView_Customer_admin_mit);
         btn_delete_customers_admin = findViewById(R.id.btn_delete_customers_admin);
-        buttom_back_admin_in_customer_mange=findViewById(R.id.buttom_back_admin_in_customer_mange);
+        buttom_back_admin_in_customer_mange = findViewById(R.id.buttom_back_admin_in_customer_mange);
 
     }
 
@@ -99,31 +106,28 @@ public class Admin_customer_mange_activity extends AppCompatActivity {
         String url = "http://10.0.2.2:80/androidPr/Return_Customers.php";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        customerList = new ArrayList<>();
-                        try {
-                            for (int i = 0; i < response.length(); i++) {
-                                JSONObject jsonObject = response.getJSONObject(i);
-                                int userID = jsonObject.getInt("UserID");
-                                int rentalID = jsonObject.getInt("RentalID");
-                                String name = jsonObject.getString("Name");
-                                String email = jsonObject.getString("Email");
-                                String phone = jsonObject.getString("Phone");
-                                Log.e("Tag", "RESPONSE: " + rentalID + " " + name + " " + email + " " + phone);
+                response -> {
+                    customerList = new ArrayList<>();
+                    try {
+                        for (int i = 0; i < response.length(); i++) {
+                            JSONObject jsonObject = response.getJSONObject(i);
+                            int userID = jsonObject.getInt("UserID");
+                            int rentalID = jsonObject.getInt("RentalID");
+                            String name = jsonObject.getString("Name");
+                            String email = jsonObject.getString("Email");
+                            String phone = jsonObject.getString("Phone");
+                            Log.e("Tag", "RESPONSE: " + rentalID + " " + name + " " + email + " " + phone);
 
-                                CustomerClass customer = new CustomerClass(userID, rentalID, name, email, phone);
-                                customerList.add(customer);
-                            }
-                            adapter = new ArrayAdapter<>(
-                                    Admin_customer_mange_activity.this,
-                                    android.R.layout.simple_list_item_1,
-                                    customerList);
-                            listView_Customer_admin_mit.setAdapter(adapter);
-                        } catch (JSONException e) {
-                            Log.e("AdminActivity", "JSON parsing error: " + e.getMessage());
+                            CustomerClass customer = new CustomerClass(userID, rentalID, name, email, phone);
+                            customerList.add(customer);
                         }
+                        adapter = new ArrayAdapter<>(
+                                Admin_customer_mange_activity.this,
+                                android.R.layout.simple_list_item_1,
+                                customerList);
+                        listView_Customer_admin_mit.setAdapter(adapter);
+                    } catch (JSONException e) {
+                        Log.e("AdminActivity", "JSON parsing error: " + e.getMessage());
                     }
                 },
                 new Response.ErrorListener() {

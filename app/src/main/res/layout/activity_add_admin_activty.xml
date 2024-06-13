@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".add_admin_activity">
+    tools:context=".AddAdminActivity">
 
     <TextView
-        android:text="@string/add_admin_mit_admin_page"
-        style="@style/text_style"/>
+        style="@style/text_style"
+        android:fontFamily="@font/adamina"
+        android:text="@string/add_admin_mit_admin_page" />
 
     <TextView
         android:text="@string/full_name_for_admin_text_mit"

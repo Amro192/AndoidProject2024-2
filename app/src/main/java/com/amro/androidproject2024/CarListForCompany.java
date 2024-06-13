@@ -20,8 +20,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CarList extends AppCompatActivity {
-    private final List<Car_B> cars = new ArrayList<>();
+public class CarListForCompany extends AppCompatActivity {
+    private final List<Car> cars = new ArrayList<>();
     private RecyclerView recycler;
     private static final String BASE_URL_COMPANY = "http://10.0.2.2:80/androidPr/get_cars.php?CompanyID=";
     private static final String USER_ALL_CARS_URL = "http://10.0.2.2:80/androidPr/get_all_cars.php";
@@ -70,7 +70,7 @@ public class CarList extends AppCompatActivity {
                             String companyID = object.getString("CompanyID");
 
 
-                            Car_B car = new Car_B(make, model, year, price, image, companyID);
+                            Car car = new Car(make, model, year, price, image, companyID);
                             cars.add(car);
                         }
 
@@ -78,11 +78,11 @@ public class CarList extends AppCompatActivity {
 
                     }
 
-                    Car_Rcycler_Adapter adapter = new Car_Rcycler_Adapter(CarList.this, cars);
+                    CarRecyclerAdapterForCompany adapter = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
                     recycler.setAdapter(adapter);
-                    Toast.makeText(CarList.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                }, error -> Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show());
+                }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
         StringRequest allCarsStringRequest = new StringRequest(Request.Method.GET, userAllCarsUrl,
                 response -> {
                     try {
@@ -101,7 +101,7 @@ public class CarList extends AppCompatActivity {
                             String CompanyID = object.getString("CompanyID");
 
 
-                            Car_B car = new Car_B(make, model, year, price, image, CompanyID);
+                            Car car = new Car(make, model, year, price, image, CompanyID);
                             cars.add(car);
                         }
 
@@ -109,11 +109,11 @@ public class CarList extends AppCompatActivity {
 
                     }
 
-                    Car_Rcycler_Adapter adapter = new Car_Rcycler_Adapter(CarList.this, cars);
+                    CarRecyclerAdapterForCompany adapter = new CarRecyclerAdapterForCompany(CarListForCompany.this, cars);
                     recycler.setAdapter(adapter);
-                    Toast.makeText(CarList.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(CarListForCompany.this, "Loaded" + cars.size(), Toast.LENGTH_LONG).show();
 
-                }, error -> Toast.makeText(CarList.this, error.toString(), Toast.LENGTH_LONG).show());
+                }, error -> Toast.makeText(CarListForCompany.this, error.toString(), Toast.LENGTH_LONG).show());
 
         queue.add(stringRequest);
         queue.add(allCarsStringRequest);

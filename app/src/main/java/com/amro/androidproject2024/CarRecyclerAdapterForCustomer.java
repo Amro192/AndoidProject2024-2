@@ -14,11 +14,11 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class Car_Rcycler_Adapter extends RecyclerView.Adapter<Car_Rcycler_Adapter.ViewHolder> {
-    private final List<Car_B> cars;
+public class CarRecyclerAdapterForCustomer extends RecyclerView.Adapter<CarRecyclerAdapterForCustomer.ViewHolder> {
+    private final List<Car> cars;
     private final Context context; // Add context field
 
-    public Car_Rcycler_Adapter(Context context, List<Car_B> cars) {
+    public CarRecyclerAdapterForCustomer(Context context, List<Car> cars) {
         this.context = context;
         this.cars = cars;
     }
@@ -32,7 +32,7 @@ public class Car_Rcycler_Adapter extends RecyclerView.Adapter<Car_Rcycler_Adapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final Car_B car = cars.get(position);
+        final Car car = cars.get(position);
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.imageCar);
         // Use Glide to load image
@@ -46,8 +46,6 @@ public class Car_Rcycler_Adapter extends RecyclerView.Adapter<Car_Rcycler_Adapte
         txtYear.setText(car.getYear());
         TextView txtPrice = cardView.findViewById(R.id.carPrice);
         txtPrice.setText(car.getPrice());
-        TextView txtCompany = cardView.findViewById(R.id.companyName_edt_signAsCompany);
-        txtCompany.setText(car.getCompanyName());
 
         cardView.setOnClickListener(v -> {
             // Handle click event
@@ -61,7 +59,6 @@ public class Car_Rcycler_Adapter extends RecyclerView.Adapter<Car_Rcycler_Adapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final CardView cardView;
-
         public ViewHolder(CardView cardView) {
             super(cardView);
             this.cardView = cardView;

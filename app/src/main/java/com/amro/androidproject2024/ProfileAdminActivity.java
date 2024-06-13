@@ -11,7 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class profileAdminActivity extends AppCompatActivity {
+public class ProfileAdminActivity extends AppCompatActivity {
 
     private TextView name_admin_textView;
 

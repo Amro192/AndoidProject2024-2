@@ -1,14 +1,14 @@
 package com.amro.androidproject2024;
 
-public class Car_B {
-    private String make;
-    private String model;
-    private String year;
-    private String price;
+public class Car {
+    private final String make;
+    private final String model;
+    private final String year;
+    private final String price;
     private String companyName;
-    private String image;
+    private final String image;
 
-    public Car_B(String make, String model, String year, String price, String image, String companyName) {
+    public Car(String make, String model, String year, String price, String image, String companyName) {
         this.make = make;
         this.model = model;
         this.year = year;
@@ -16,6 +16,14 @@ public class Car_B {
         this.image = image;
         this.companyName = companyName;
 
+    }
+
+    public Car(String make, String model, String year, String price, String image) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.image = image;
     }
 
 

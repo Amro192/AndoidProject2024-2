@@ -19,7 +19,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -43,11 +42,11 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
    // private ArrayList<Company_admin_class> companyList;
 
    // private ArrayAdapter<Company_admin_class> adapter;
-    private Company_admin_class selectedCompany;
+    private Company selectedCompany;
 
-    ArrayList<Company_admin_class> companyList;
-    ArrayAdapter<Company_admin_class> adapter;
-    private  Company_admin_class selectedcompany;
+    ArrayList<Company> companyList;
+    ArrayAdapter<Company> adapter;
+    private Company selectedcompany;
 
     private int userId;
     private String userName;
@@ -120,7 +119,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
                                 String address = jsonObject.getString("Address");
                                 Log.e("Tag", "RESPONSE: " + companyID + " " + userID + " " + companyName + " " + email + " " + phone + " " + address);
                                 // Create an instance of Company_admin_class and add it to companyList
-                                Company_admin_class company = new Company_admin_class(companyID, userID, companyName, email, phone, address);
+                                Company company = new Company(userID, companyName, email, phone, address);
                                 companyList.add(company);
                             }
                              adapter = new ArrayAdapter<>(
@@ -143,7 +142,7 @@ public class Admin_Company_Mange_Activity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-    private void deleteCompany(Company_admin_class company) {
+    private void deleteCompany(Company company) {
         // Remove the customer from the list and notify the adapter
         companyList.remove(company);
         adapter.notifyDataSetChanged();

@@ -298,4 +298,5 @@
     <string name="_2024_5_1">2024/5/1</string>
     <string name="_10000">10000$</string>
     <string name="carimagee">CarImage</string>
+    <string name="welcome_back">"Welcome Back, "</string>
 </resources>

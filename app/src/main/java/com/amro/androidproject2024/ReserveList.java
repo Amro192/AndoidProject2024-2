@@ -6,9 +6,6 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,7 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reserve_List extends AppCompatActivity {
+public class ReserveList extends AppCompatActivity {
     private RecyclerView recycler;
     private final List<Reserve> reserves = new ArrayList<>();
     private static final String RENTAL_ALL_RESERVES_URL = "http://10.0.2.2:80/androidPr/get_reserv.php?RentalID=";
@@ -83,11 +80,11 @@ public class Reserve_List extends AppCompatActivity {
 
 
 
-                    Reserve_Rcycler_Adapter reserveAdapter = new Reserve_Rcycler_Adapter(Reserve_List.this, reserves);
+                    ReserveRecyclerAdapter reserveAdapter = new ReserveRecyclerAdapter(ReserveList.this, reserves);
                     recycler.setAdapter(reserveAdapter);
-                    Toast.makeText(Reserve_List.this, "Loaded" + reserves.size(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ReserveList.this, "Loaded" + reserves.size(), Toast.LENGTH_LONG).show();
 
-                }, error -> Toast.makeText(Reserve_List.this, error.toString(), Toast.LENGTH_LONG).show());
+                }, error -> Toast.makeText(ReserveList.this, error.toString(), Toast.LENGTH_LONG).show());
         queue.add(stringRequestReserve);
     }
 }

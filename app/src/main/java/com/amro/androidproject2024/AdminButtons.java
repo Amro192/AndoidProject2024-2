@@ -71,7 +71,7 @@ public class AdminButtons extends AppCompatActivity {
             @Override
             public void onClick(View v) {
            intent.putExtra("user_name", userName);
-           Intent intent = new Intent(AdminButtons.this, add_admin_activity.class);
+           Intent intent = new Intent(AdminButtons.this, AddAdminActivity.class);
            startActivity(intent);
             }
         });
