@@ -1,4 +1,4 @@
-package com.amro.androidproject2024;
+package com.amro.androidproject2024.admin_activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amro.androidproject2024.R;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -37,7 +38,7 @@ public class AddAdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_admin_activty);
-        setUpValues();
+        setUpViews();
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -91,7 +92,7 @@ public class AddAdminActivity extends AppCompatActivity {
         }
     }
 
-    public void setUpValues() {
+    public void setUpViews() {
         fullnameEditText = findViewById(R.id.fullNameForAdmin_add_Admin_mit);
         emailEditText = findViewById(R.id.emailForAdmin_add_Admin_mit);
         passwordEditText = findViewById(R.id.passwordForAdmin_add_Admin_mit);
@@ -176,7 +177,7 @@ public class AddAdminActivity extends AppCompatActivity {
 
     public void onClickBackButton(View ignored) {
         startActivity(
-                new Intent(this, AdminButtons.class)
+                new Intent(this, AdminHomeScreen.class)
                         .putExtra("user_name", userName)
         );
     }

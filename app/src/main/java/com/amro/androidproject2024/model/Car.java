@@ -1,4 +1,4 @@
-package com.amro.androidproject2024;
+package com.amro.androidproject2024.model;
 
 public class Car {
     private final String make;

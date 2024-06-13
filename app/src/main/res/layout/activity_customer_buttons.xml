@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingTop="100dp"
     android:orientation="vertical"
-    tools:context=".AdminButtons">
+    tools:context=".admin_activities.AdminHomeScreen">
 
 
     <TextView
@@ -24,7 +24,6 @@
         android:backgroundTint="#356DE3"
         android:gravity="center"
         android:text="Show All Cars" />
-
 
 
     <Button

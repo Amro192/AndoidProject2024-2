@@ -1,57 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminButtons"
+    tools:context=".admin_activities.AdminHomeScreen"
     android:orientation="vertical">
-
 
     <TextView
         style="@style/text_style"
         android:text=""
-        android:id="@+id/text_view_admin_show_name"
-        />
-
+        android:id="@+id/showAdminNameTextView" />
 
     <Button
-        android:id="@+id/button_admin_show_customer"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
         android:backgroundTint="#356DE3"
         android:gravity="center"
+        android:onClick="onClickShowCustomersButton"
         android:text="Show Customer App" />
 
     <Button
-        android:id="@+id/button_admin_show_company"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
+        android:backgroundTint="#356DE3"
+        android:onClick="onClickShowCompanyButton"
         android:text="Show Company App" />
 
     <Button
-        android:id="@+id/button_add_admin_mitri"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="        Add Admin        " />
+        android:backgroundTint="#356DE3"
+        android:onClick="onClickAddAdminButton"
+        android:text="Add Admin" />
 
     <Button
-        android:id="@+id/botton_logout_mitri_admin"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:backgroundTint="#356DE3"
         android:layout_gravity="center"
         android:layout_marginBottom="30dp"
-        android:text="           log out           " />
+        android:onClick="onClickLogOutButton"
+        android:backgroundTint="#356DE3"
+        android:text="log out" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

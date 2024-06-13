@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.amro.androidproject2024.admin_activities.AdminHomeScreen;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // Redirect to admin activity
                             // use the user id and admin id to do many things in admin page
-                            Intent adminIntent = new Intent(MainActivity.this, AdminButtons.class);
+                            Intent adminIntent = new Intent(MainActivity.this, AdminHomeScreen.class);
                             adminIntent.putExtra("user_id", user_id);
                             adminIntent.putExtra("user_name", name);
                             adminIntent.putExtra("admin_id", idRole);

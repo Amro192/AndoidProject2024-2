@@ -10,18 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amro.androidproject2024.model.Reserve;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class ReserveRecyclerAdapter extends RecyclerView.Adapter<ReserveRecyclerAdapter.ViewHolderr>{
+public class ReserveRecyclerAdapter extends RecyclerView.Adapter<ReserveRecyclerAdapter.ViewHolderr> {
 
     private final List<Reserve> reserveList;
     private final Context context; // Add context field
+
     public ReserveRecyclerAdapter(Context context, List<Reserve> reserveList) {
         this.context = context;
         this.reserveList = reserveList;
     }
+
     @NonNull
     @Override
     public ReserveRecyclerAdapter.ViewHolderr onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
