@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddAdminActivity">
+    tools:context=".admin_activities.AddAdminActivity">
 
     <TextView
         style="@style/text_style"

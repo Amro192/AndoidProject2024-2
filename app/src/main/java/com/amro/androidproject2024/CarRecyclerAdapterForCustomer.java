@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amro.androidproject2024.model.Car;
 import com.bumptech.glide.Glide;
 
 import java.util.List;

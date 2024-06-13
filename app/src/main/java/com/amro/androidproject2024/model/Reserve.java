@@ -1,14 +1,14 @@
-package com.amro.androidproject2024;
+package com.amro.androidproject2024.model;
 
 public class Reserve {
-    private String make;
-    private String model;
-    private String year;
-    private String price;
-    private String companyName;
-    private String image;
-    private String startDateTime;
-    private String endDateTime;
+    private final String make;
+    private final String model;
+    private final String year;
+    private final String price;
+    private final String companyName;
+    private final String image;
+    private final String startDateTime;
+    private final String endDateTime;
 
     public Reserve(String make, String model, String year, String price, String image, String companyName, String startDateTime, String endDateTime) {
         this.make = make;
@@ -19,7 +19,6 @@ public class Reserve {
         this.companyName = companyName;
         this.startDateTime = startDateTime;
         this.endDateTime = endDateTime;
-
     }
 
     public String getCompanyName() {
@@ -45,9 +44,11 @@ public class Reserve {
     public String getPrice() {
         return price;
     }
+
     public String getStartDateTime() {
         return startDateTime;
     }
+
     public String getEndDateTime() {
         return endDateTime;
     }
